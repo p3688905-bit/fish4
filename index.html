@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>濠梁之辯 · 魚樂知否｜古風互動學習卷</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-tc/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ma-shan-zheng/index.css" />
+<style>
+:root{
+  --paper:#FCF8EE;
+  --paper2:#F6EEDC;
+  --paper3:#EFE3CB;
+  --ink:#33302A;
+  --ink2:#6C6455;
+  --ink3:#948A76;
+  --cinnabar:#B5382A;
+  --cinnabar2:#D2503A;
+  --jade:#4C7A5C;
+  --jade2:#7FA98A;
+  --indigo:#2E4A5C;
+  --gold:#C39A3F;
+  --gold2:#E2C67C;
+  --line:rgba(126,104,68,.26);
+  --line2:rgba(126,104,68,.14);
+  --shadow:0 12px 34px rgba(96,74,40,.13);
+  --shadow-s:0 5px 16px rgba(96,74,40,.10);
+  --serif:'Noto Serif TC','Songti TC','Source Han Serif TC',serif;
+  --brush:'Ma Shan Zheng','Noto Serif TC',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.22;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.5'/></svg>");
+  mix-blend-mode:multiply;
+}
+img,svg{max-width:100%}
+h1,h2,h3,h4{font-weight:700;line-height:1.5;margin:0}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.25em}
+li{margin:.28em 0}
+a{color:var(--cinnabar);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.muted{color:var(--ink2)}
+.small{font-size:.86rem}
+.brush{font-family:var(--brush);font-weight:400}
+.hl{background:linear-gradient(transparent 62%,rgba(226,198,124,.55) 62%);padding:0 2px}
+.key{color:var(--cinnabar);font-weight:700}
+.jadeT{color:var(--jade);font-weight:700}
+.indT{color:var(--indigo);font-weight:700}
+
+/* ===== progress + nav ===== */
+#prog{position:fixed;top:0;left:0;height:4px;width:0;z-index:80;
+  background:linear-gradient(90deg,var(--cinnabar),var(--gold),var(--jade));transition:width .12s linear}
+nav{position:fixed;top:4px;left:0;right:0;z-index:70;
+  background:rgba(252,248,238,.9);backdrop-filter:blur(9px);
+  border-bottom:1px solid var(--line);}
+.navin{max-width:1180px;margin:0 auto;padding:8px 18px;display:flex;align-items:center;gap:14px}
+.brand{font-family:var(--brush);font-size:1.42rem;color:var(--cinnabar);white-space:nowrap;letter-spacing:.08em}
+.brand small{font-family:var(--serif);font-size:.66rem;color:var(--ink3);letter-spacing:.28em;display:block;margin-top:-6px}
+.navlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto;padding:2px}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-size:.86rem;color:var(--ink2);padding:6px 11px;border-radius:3px;white-space:nowrap;transition:.25s;position:relative}
+.navlinks a:hover{color:var(--cinnabar);background:rgba(181,56,42,.07)}
+.navlinks a.act{color:#fff;background:var(--cinnabar)}
+
+/* ===== hero ===== */
+header.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  background:linear-gradient(180deg,#FDF9EF 0%,#F4F0E2 46%,#E4EEEA 100%)}
+.heroArt{position:absolute;inset:0;width:100%;height:100%;display:block}
+#fishCv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.heroIn{position:relative;z-index:5;text-align:center;padding:96px 22px 120px;max-width:900px}
+.heroSeal{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;
+  border:1px solid rgba(181,56,42,.4);background:rgba(255,252,244,.7);padding:5px 16px;border-radius:2px}
+.heroSeal b{font-family:var(--brush);color:var(--cinnabar);font-size:1.05rem;letter-spacing:.24em;font-weight:400}
+.heroSeal span{font-size:.74rem;color:var(--ink3);letter-spacing:.2em}
+h1.title{font-family:var(--brush);font-weight:400;font-size:clamp(3rem,10vw,6.4rem);line-height:1.06;
+  color:var(--ink);letter-spacing:.06em;text-shadow:0 4px 26px rgba(255,252,240,.9)}
+h1.title em{font-style:normal;color:var(--cinnabar)}
+.subtitle{margin:14px auto 6px;max-width:640px;font-size:clamp(1rem,2.4vw,1.2rem);color:var(--ink2)}
+.heroQuote{font-family:var(--brush);font-size:clamp(1.1rem,3vw,1.6rem);color:var(--indigo);margin:18px 0 26px;letter-spacing:.1em}
+.heroBtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.heroTags{margin-top:34px;display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.tag{font-size:.78rem;padding:4px 13px;border:1px solid var(--line);border-radius:20px;background:rgba(255,253,247,.72);color:var(--ink2)}
+.scrollHint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:6;color:var(--ink3);font-size:.76rem;letter-spacing:.3em;text-align:center}
+.scrollHint i{display:block;width:1px;height:34px;margin:8px auto 0;background:linear-gradient(var(--ink3),transparent);animation:drop 1.9s infinite}
+@keyframes drop{0%{transform:scaleY(.2);opacity:0}40%{opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* ===== buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:var(--serif);
+  font-size:.94rem;padding:11px 24px;border-radius:3px;background:var(--cinnabar);color:#FFF6EC;
+  letter-spacing:.1em;box-shadow:0 6px 18px rgba(181,56,42,.28);transition:.28s}
+.btn:hover{transform:translateY(-2px);background:var(--cinnabar2);box-shadow:0 10px 24px rgba(181,56,42,.34)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--cinnabar);border:1px solid rgba(181,56,42,.45);box-shadow:none}
+.btn.ghost:hover{background:rgba(181,56,42,.08);color:var(--cinnabar2)}
+.btn.jade{background:var(--jade);box-shadow:0 6px 18px rgba(76,122,92,.26)}
+.btn.jade:hover{background:#3E6749}
+.btn.sm{font-size:.82rem;padding:7px 15px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ===== sections ===== */
+section.blk{position:relative;padding:82px 0}
+section.blk:nth-of-type(even){background:linear-gradient(180deg,rgba(246,238,220,.55),rgba(252,248,238,0))}
+.secHead{text-align:center;margin-bottom:38px}
+.secTag{display:inline-block;font-family:var(--brush);font-size:1rem;color:#FFF3E4;background:var(--indigo);
+  padding:3px 15px;letter-spacing:.3em;border-radius:2px;margin-bottom:14px;transform:rotate(-1.4deg);
+  box-shadow:0 4px 12px rgba(46,74,92,.24)}
+.secTag.red{background:var(--cinnabar);box-shadow:0 4px 12px rgba(181,56,42,.24)}
+.secTag.jade{background:var(--jade);box-shadow:0 4px 12px rgba(76,122,92,.22)}
+.secTag.gold{background:var(--gold);box-shadow:0 4px 12px rgba(195,154,63,.24)}
+h2.secT{font-size:clamp(1.6rem,4.4vw,2.35rem);letter-spacing:.1em}
+.secSub{color:var(--ink2);max-width:700px;margin:12px auto 0;font-size:.98rem}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px auto 0;max-width:420px;color:var(--gold)}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+/* ===== cards ===== */
+.card{background:linear-gradient(150deg,#FFFCF4,#F7F0E0);border:1px solid var(--line);border-radius:5px;
+  box-shadow:var(--shadow-s);position:relative;padding:26px 26px}
+.card.orn::before,.card.orn::after{content:'';position:absolute;width:16px;height:16px;border:1.5px solid rgba(195,154,63,.6)}
+.card.orn::before{top:7px;left:7px;border-right:0;border-bottom:0}
+.card.orn::after{bottom:7px;right:7px;border-left:0;border-top:0}
+.cardH{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.cardH .no{font-family:var(--brush);font-size:1.5rem;color:var(--cinnabar);line-height:1}
+.cardH h3{font-size:1.16rem;letter-spacing:.06em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+/* ===== reveal ===== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.09s}.reveal[data-d="2"]{transition-delay:.18s}
+.reveal[data-d="3"]{transition-delay:.27s}.reveal[data-d="4"]{transition-delay:.36s}
+
+/* ===== 原文卷軸 ===== */
+.scrollBox{background:linear-gradient(180deg,#FFFDF6,#F8F1E1);border:1px solid var(--line);border-radius:4px;
+  box-shadow:var(--shadow);padding:0 0 8px;position:relative;overflow:hidden}
+.scrollBox::before,.scrollBox::after{content:'';position:absolute;left:0;right:0;height:14px;z-index:2;
+  background:repeating-linear-gradient(90deg,rgba(195,154,63,.5) 0 6px,transparent 6px 14px)}
+.scrollBox::before{top:0}.scrollBox::after{bottom:0}
+.scrollTools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:22px 24px 4px}
+.lineList{padding:14px 22px 22px}
+.line{border-left:3px solid transparent;padding:11px 14px 11px 16px;margin:6px 0;border-radius:0 4px 4px 0;
+  cursor:pointer;transition:.3s;background:rgba(255,255,255,0)}
+.line:hover{background:rgba(226,198,124,.16);border-left-color:var(--gold)}
+.line.act{background:rgba(226,198,124,.2);border-left-color:var(--cinnabar)}
+.line .who{font-family:var(--brush);font-size:1rem;letter-spacing:.14em;margin-right:10px;padding:1px 9px;border-radius:2px;color:#fff}
+.who.zz{background:var(--jade)}
+.who.hz{background:var(--indigo)}
+.who.nb{background:var(--ink3)}
+.line .txt{font-size:1.06rem;letter-spacing:.05em}
+.lineBody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.line.open .lineBody{grid-template-rows:1fr}
+.lineBody>div{overflow:hidden}
+.lineNote{margin:12px 0 4px;padding:14px 16px;background:rgba(255,255,255,.72);border:1px dashed var(--line);border-radius:4px}
+.lineNote b{color:var(--cinnabar);font-size:.86rem;letter-spacing:.14em;display:block;margin-bottom:4px}
+.lineNote .nt{font-size:.92rem;color:var(--ink2)}
+.caret{float:right;color:var(--ink3);font-size:.8rem;transition:.3s}
+.line.open .caret{transform:rotate(90deg);color:var(--cinnabar)}
+
+/* ===== debate cards ===== */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dcard{background:#FFFDF6;border:1px solid var(--line);border-top:4px solid var(--jade);border-radius:4px;padding:22px;box-shadow:var(--shadow-s);transition:.3s}
+.dcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.dcard:nth-child(2){border-top-color:var(--indigo)}
+.dcard:nth-child(3){border-top-color:var(--cinnabar)}
+.dcard .ic{font-family:var(--brush);font-size:2rem;color:var(--jade);line-height:1}
+.dcard:nth-child(2) .ic{color:var(--indigo)}.dcard:nth-child(3) .ic{color:var(--cinnabar)}
+.dcard h4{margin:8px 0 8px;font-size:1.05rem}
+.dcard p{font-size:.92rem;color:var(--ink2);margin:0}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:.92rem;background:#FFFDF6;border:1px solid var(--line)}
+table.cmp th,table.cmp td{border:1px solid var(--line2);padding:11px 13px;text-align:left;vertical-align:top}
+table.cmp th{background:rgba(195,154,63,.14);font-weight:700;letter-spacing:.06em}
+table.cmp tr:nth-child(even) td{background:rgba(246,238,220,.42)}
+.tw{overflow-x:auto}
+
+/* ===== accordion ===== */
+.acc{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#FFFDF6;margin-bottom:12px}
+.accH{display:flex;align-items:center;gap:12px;padding:15px 18px;cursor:pointer;transition:.25s;user-select:none}
+.accH:hover{background:rgba(226,198,124,.15)}
+.accH .dot{width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:var(--cinnabar);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-family:var(--brush)}
+.accH h4{font-size:1.02rem;flex:1}
+.accH .pm{color:var(--ink3);transition:.35s;font-size:1.1rem}
+.acc.on .accH .pm{transform:rotate(45deg);color:var(--cinnabar)}
+.acc.on .accH{background:rgba(226,198,124,.16)}
+.accB{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.2,.8,.2,1)}
+.acc.on .accB{grid-template-rows:1fr}
+.accB>div{overflow:hidden}
+.accB .in{padding:4px 18px 18px 56px;font-size:.95rem;color:var(--ink2);border-top:1px dashed var(--line2)}
+
+/* ===== quiz ===== */
+.quizBox{background:linear-gradient(150deg,#FFFDF6,#F6EFDF);border:1px solid var(--line);border-radius:5px;box-shadow:var(--shadow);overflow:hidden}
+.quizTop{display:flex;align-items:center;gap:14px;padding:16px 22px;background:rgba(46,74,92,.06);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.qbar{flex:1;min-width:150px;height:7px;background:rgba(126,104,68,.16);border-radius:6px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--cinnabar));transition:width .5s}
+.quizBody{padding:24px 22px}
+.qImg{background:radial-gradient(circle at 50% 40%,#FFFEF9,#F2E9D6);border:1px solid var(--line2);border-radius:4px;padding:6px;margin-bottom:16px}
+.qText{font-size:1.05rem;margin-bottom:14px;font-weight:700}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;font-family:var(--serif);font-size:.95rem;padding:12px 15px;border:1px solid var(--line);
+  border-radius:4px;background:#FFFDF7;cursor:pointer;transition:.22s;display:flex;gap:11px;align-items:flex-start;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--gold);background:rgba(226,198,124,.13);transform:translateX(4px)}
+.opt .lb{flex:0 0 22px;height:22px;border-radius:50%;background:rgba(126,104,68,.13);color:var(--ink2);
+  display:flex;align-items:center;justify-content:center;font-size:.76rem;margin-top:2px}
+.opt.ok{border-color:var(--jade);background:rgba(76,122,92,.13)}
+.opt.ok .lb{background:var(--jade);color:#fff}
+.opt.no{border-color:var(--cinnabar);background:rgba(181,56,42,.11)}
+.opt.no .lb{background:var(--cinnabar);color:#fff}
+.opt:disabled{cursor:default;opacity:.92}
+.fb{margin-top:15px;padding:14px 16px;border-radius:4px;font-size:.92rem;display:none;animation:fadeUp .45s}
+.fb.show{display:block}
+.fb.good{background:rgba(76,122,92,.12);border-left:4px solid var(--jade)}
+.fb.bad{background:rgba(181,56,42,.09);border-left:4px solid var(--cinnabar)}
+.fb b{display:block;margin-bottom:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.quizFoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;border-top:1px solid var(--line2);background:rgba(255,253,247,.6);flex-wrap:wrap}
+.scorePill{font-family:var(--brush);font-size:1.1rem;color:var(--cinnabar);letter-spacing:.1em}
+
+/* ===== flip cards ===== */
+.flip{perspective:1200px;cursor:pointer;height:250px}
+.flipIn{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip.on .flipIn{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:5px;padding:22px;border:1px solid var(--line);
+  display:flex;flex-direction:column;box-shadow:var(--shadow-s)}
+.face.f{background:linear-gradient(155deg,#FFFDF6,#F3EBD9)}
+.face.b{transform:rotateY(180deg);background:linear-gradient(155deg,#2E4A5C,#3E5F73);color:#F2EBDD;border-color:#2E4A5C;font-size:.87rem;overflow:auto}
+.face .fi{font-family:var(--brush);font-size:2.3rem;color:var(--cinnabar);line-height:1}
+.face h4{margin:9px 0 8px;font-size:1.06rem}
+.face p{font-size:.9rem;color:var(--ink2);margin:0}
+.face.b p{color:rgba(242,235,221,.9)}
+.face.b b{color:var(--gold2)}
+.face .tip{margin-top:auto;font-size:.76rem;color:var(--ink3);letter-spacing:.16em}
+.face.b .tip{color:rgba(242,235,221,.6)}
+
+/* ===== figures (Q2) ===== */
+.figGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fig{background:#FFFDF6;border:1px solid var(--line);border-radius:5px;padding:18px 12px;text-align:center;cursor:pointer;transition:.3s;position:relative}
+.fig:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold)}
+.fig.on{border-color:var(--cinnabar);background:rgba(181,56,42,.06);box-shadow:var(--shadow)}
+.fig .seal{width:52px;height:52px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--brush);font-size:1.5rem;color:#fff;background:var(--indigo);box-shadow:inset 0 0 0 3px rgba(255,255,255,.25)}
+.fig:nth-child(2) .seal{background:var(--jade)}
+.fig:nth-child(3) .seal{background:var(--gold)}
+.fig:nth-child(4) .seal{background:var(--cinnabar)}
+.fig h5{margin:0 0 3px;font-size:.98rem}
+.fig span{font-size:.76rem;color:var(--ink3)}
+.bubble{margin-top:18px;min-height:96px;background:linear-gradient(150deg,#FFFDF6,#F5EEDD);border:1px solid var(--line);
+  border-left:5px solid var(--cinnabar);border-radius:4px;padding:20px 22px;position:relative}
+.bubble .who2{font-family:var(--brush);color:var(--cinnabar);font-size:1.2rem;letter-spacing:.1em}
+.bubble .said{font-size:1.05rem;margin:6px 0 8px;font-style:italic;color:var(--ink)}
+.bubble .why{font-size:.9rem;color:var(--ink2)}
+
+/* ladder */
+.ladder{display:flex;flex-direction:column;gap:9px}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:4px;cursor:pointer;
+  border:1px solid var(--line);background:#FFFDF6;transition:.3s}
+.step:hover{border-color:var(--gold);background:rgba(226,198,124,.12)}
+.step .sn{flex:0 0 34px;height:34px;border-radius:4px;background:var(--paper3);color:var(--ink2);display:flex;
+  align-items:center;justify-content:center;font-family:var(--brush);font-size:1.15rem;transition:.3s}
+.step.on .sn{background:var(--cinnabar);color:#fff}
+.step .st{font-weight:700;font-size:.99rem}
+.step .sd{font-size:.88rem;color:var(--ink2);display:none;margin-top:4px}
+.step.on .sd{display:block;animation:fadeUp .4s}
+.step:nth-child(1){margin-right:0}.step:nth-child(2){margin-left:22px}
+.step:nth-child(3){margin-left:44px}.step:nth-child(4){margin-left:66px}
+
+/* generator */
+.genRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.chip{padding:7px 15px;border:1px solid var(--line);border-radius:20px;background:#FFFDF6;cursor:pointer;font-size:.87rem;transition:.25s;font-family:var(--serif);color:var(--ink2)}
+.chip:hover{border-color:var(--gold);color:var(--cinnabar)}
+.chip.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.genOut{background:rgba(46,74,92,.06);border:1px dashed rgba(46,74,92,.4);border-radius:4px;padding:18px;font-size:.98rem}
+.genOut p{margin:0 0 9px;padding-left:20px;position:relative}
+.genOut p::before{content:'❝';position:absolute;left:0;color:var(--gold);font-size:.9rem}
+.genOut p:last-child{margin-bottom:0}
+
+/* scenario */
+.scn{background:#FFFDF6;border:1px solid var(--line);border-radius:5px;padding:18px;margin-bottom:14px;transition:.3s}
+.scn.done{background:rgba(246,238,220,.6)}
+.scnTop{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.scnNo{flex:0 0 30px;height:30px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.84rem}
+.scnT{flex:1;font-size:.99rem;font-weight:700}
+.riskTag{font-size:.72rem;padding:2px 9px;border-radius:12px;background:rgba(181,56,42,.12);color:var(--cinnabar);white-space:nowrap;border:1px solid rgba(181,56,42,.25)}
+.riskTag.low{background:rgba(76,122,92,.12);color:var(--jade);border-color:rgba(76,122,92,.3)}
+.riskTag.mid{background:rgba(195,154,63,.15);color:#8A6A16;border-color:rgba(195,154,63,.35)}
+.scnOpts{display:flex;gap:8px;flex-wrap:wrap}
+.sBtn{font-family:var(--serif);font-size:.85rem;padding:7px 14px;border:1px solid var(--line);background:#FFFEF8;
+  border-radius:3px;cursor:pointer;transition:.22s;color:var(--ink2)}
+.sBtn:hover:not(:disabled){border-color:var(--gold);color:var(--cinnabar);background:rgba(226,198,124,.14)}
+.sBtn.ok{background:var(--jade);border-color:var(--jade);color:#fff}
+.sBtn.no{background:rgba(181,56,42,.14);border-color:var(--cinnabar);color:var(--cinnabar)}
+.sBtn:disabled{cursor:default}
+
+/* vote */
+.voteOpt{background:#FFFDF6;border:1px solid var(--line);border-radius:5px;padding:20px;cursor:pointer;transition:.3s;text-align:left;width:100%;font-family:var(--serif);color:var(--ink)}
+.voteOpt:hover{border-color:var(--cinnabar);transform:translateY(-4px);box-shadow:var(--shadow)}
+.voteOpt.picked{border-color:var(--cinnabar);background:rgba(181,56,42,.07)}
+.voteOpt h4{font-family:var(--brush);font-size:1.4rem;color:var(--cinnabar);letter-spacing:.08em;margin-bottom:6px}
+.voteOpt p{font-size:.88rem;color:var(--ink2);margin:0}
+.vres{margin-top:16px;display:none}
+.vres.show{display:block;animation:fadeUp .5s}
+.vrow{display:flex;align-items:center;gap:12px;margin:9px 0;font-size:.9rem}
+.vrow .vn{flex:0 0 92px;font-family:var(--brush);color:var(--ink2);font-size:1.05rem}
+.vtrack{flex:1;height:16px;background:rgba(126,104,68,.13);border-radius:9px;overflow:hidden}
+.vtrack i{display:block;height:100%;width:0;border-radius:9px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.vrow .vp{flex:0 0 46px;text-align:right;color:var(--ink2);font-size:.84rem}
+
+/* certificate */
+.cert{position:relative;background:linear-gradient(150deg,#FFFDF6 0%,#F7EFDC 100%);border:2px solid var(--gold);
+  border-radius:5px;padding:34px 30px;text-align:center;box-shadow:var(--shadow);overflow:hidden;display:none}
+.cert.show{display:block;animation:fadeUp .6s}
+.cert::before{content:'';position:absolute;inset:8px;border:1px solid rgba(195,154,63,.5);border-radius:3px;pointer-events:none}
+.cert h3{font-family:var(--brush);font-size:2.2rem;color:var(--cinnabar);letter-spacing:.2em;font-weight:400}
+.cert .nm{font-family:var(--brush);font-size:1.9rem;color:var(--ink);margin:14px 0;border-bottom:1px solid var(--line);display:inline-block;padding:0 22px 4px}
+.cert p{font-size:.94rem;color:var(--ink2);max-width:520px;margin:10px auto}
+.stamp{width:104px;height:104px;margin:18px auto 0;display:flex;align-items:center;justify-content:center;
+  border:4px solid var(--cinnabar);border-radius:8px;color:var(--cinnabar);font-family:var(--brush);font-size:1.28rem;
+  line-height:1.2;letter-spacing:.06em;transform:rotate(-9deg);opacity:.92;text-align:center;padding:6px;
+  box-shadow:0 0 0 2px rgba(181,56,42,.18) inset;animation:stampIn .55s cubic-bezier(.2,1.4,.4,1)}
+@keyframes stampIn{0%{transform:rotate(-9deg) scale(2.4);opacity:0}60%{opacity:.95}100%{transform:rotate(-9deg) scale(1);opacity:.92}}
+.inRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
+.inp{font-family:var(--serif);font-size:.98rem;padding:10px 15px;border:1px solid var(--line);border-radius:3px;background:#FFFDF7;color:var(--ink);min-width:200px}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(195,154,63,.18)}
+textarea.inp{width:100%;min-height:110px;resize:vertical;line-height:1.9}
+
+/* track seals */
+.track{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.tseal{width:44px;height:44px;border-radius:5px;border:2px solid rgba(126,104,68,.3);color:var(--ink3);
+  display:flex;align-items:center;justify-content:center;font-family:var(--brush);font-size:1.1rem;transition:.4s;background:#FFFDF6}
+.tseal.hit{border-color:var(--cinnabar);color:var(--cinnabar);background:rgba(181,56,42,.08);transform:rotate(-5deg)}
+
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.quote{background:linear-gradient(150deg,#FFFDF6,#F5EEDD);border-left:4px solid var(--gold);padding:18px 20px;border-radius:0 4px 4px 0}
+.quote .q{font-family:var(--brush);font-size:1.32rem;color:var(--ink);letter-spacing:.06em}
+.quote .s{font-size:.8rem;color:var(--ink3);margin-top:6px}
+
+/* footer */
+footer{background:linear-gradient(180deg,#2E4A5C,#243B49);color:#E7DFCF;padding:56px 0 34px;text-align:center}
+footer .fq{font-family:var(--brush);font-size:1.8rem;color:var(--gold2);letter-spacing:.16em;margin-bottom:10px}
+footer p{font-size:.86rem;color:rgba(231,223,207,.72);max-width:660px;margin:0 auto 8px}
+footer .fline{width:70px;height:2px;background:var(--gold);margin:22px auto;opacity:.7}
+
+.noteBox{background:rgba(76,122,92,.09);border-left:4px solid var(--jade);padding:15px 18px;border-radius:0 4px 4px 0;font-size:.93rem;margin:14px 0}
+.noteBox.warn{background:rgba(181,56,42,.08);border-left-color:var(--cinnabar)}
+.noteBox.gold{background:rgba(195,154,63,.12);border-left-color:var(--gold)}
+.noteBox b{color:var(--ink)}
+.banner{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#FFFDF6;box-shadow:var(--shadow-s);margin-bottom:24px}
+.pill{display:inline-block;font-size:.76rem;padding:2px 10px;border-radius:12px;background:rgba(46,74,92,.1);color:var(--indigo);margin-right:6px;letter-spacing:.06em}
+.pill.r{background:rgba(181,56,42,.12);color:var(--cinnabar)}
+.pill.g{background:rgba(76,122,92,.14);color:var(--jade)}
+.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,26px);background:var(--ink);color:#FFF6E8;
+  padding:11px 22px;border-radius:3px;font-size:.88rem;opacity:0;pointer-events:none;transition:.4s;z-index:99;letter-spacing:.08em}
+.toast.show{opacity:.95;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  .three,.g3,.g4,.g2,.figGrid,.quotes{grid-template-columns:1fr 1fr}
+  .twoCol{grid-template-columns:1fr}
+  .step:nth-child(2),.step:nth-child(3),.step:nth-child(4){margin-left:0}
+}
+@media(max-width:620px){
+  .three,.g3,.g4,.g2,.figGrid,.quotes{grid-template-columns:1fr}
+  section.blk{padding:60px 0}
+  .card{padding:20px 18px}
+  .accB .in{padding-left:18px}
+  .flip{height:auto;min-height:270px}
+  .brand small{display:none}
+  .heroIn{padding-top:120px}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<nav>
+  <div class="navin">
+    <div class="brand">濠梁之辯<small>魚樂知否</small></div>
+    <div class="navlinks" id="navLinks">
+      <a href="#hero">序</a>
+      <a href="#yuanwen">原文</a>
+      <a href="#bianjie">辯解</a>
+      <a href="#q1">一問·魚樂</a>
+      <a href="#q2">二問·同理</a>
+      <a href="#q3">三問·判斷</a>
+      <a href="#jieshu">結語</a>
+      <a href="#jiance">檢核</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <svg class="heroArt" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FDF9EF"/><stop offset=".55" stop-color="#F4F1E4"/><stop offset="1" stop-color="#E6EFEA"/>
+      </linearGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#D6E4E1"/><stop offset="1" stop-color="#BFD3D2"/>
+      </linearGradient>
+      <linearGradient id="mt1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#B9CBC9"/><stop offset="1" stop-color="#D9E4DE"/>
+      </linearGradient>
+      <linearGradient id="mt2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8FA9AC"/><stop offset="1" stop-color="#C6D6D1"/>
+      </linearGradient>
+      <radialGradient id="sunG" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#FBE7B0" stop-opacity=".95"/><stop offset="1" stop-color="#FBE7B0" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+      <filter id="soft2"><feGaussianBlur stdDeviation="2.4"/></filter>
+    </defs>
+    <rect width="1440" height="820" fill="url(#sky)"/>
+    <circle cx="1150" cy="180" r="130" fill="url(#sunG)"/>
+    <circle cx="1150" cy="180" r="46" fill="#F6E2AE" opacity=".75"/>
+    <!-- far mountains -->
+    <path d="M0 400 L120 320 L210 372 L320 268 L430 360 L520 300 L640 392 L700 400 Z" fill="url(#mt1)" opacity=".55" filter="url(#soft)"/>
+    <path d="M700 400 L800 330 L900 386 L1010 288 L1120 372 L1240 310 L1340 380 L1440 344 L1440 420 L700 420 Z" fill="url(#mt1)" opacity=".5" filter="url(#soft)"/>
+    <!-- near mountains -->
+    <path d="M-20 470 L130 366 L250 452 L360 386 L470 470 L520 470 Z" fill="url(#mt2)" opacity=".45" filter="url(#soft2)"/>
+    <path d="M980 470 L1120 380 L1250 458 L1360 404 L1460 470 Z" fill="url(#mt2)" opacity=".42" filter="url(#soft2)"/>
+    <!-- mist -->
+    <ellipse cx="720" cy="440" rx="760" ry="34" fill="#FBF7EC" opacity=".72" filter="url(#soft)"/>
+    <ellipse cx="300" cy="500" rx="420" ry="26" fill="#FBF7EC" opacity=".5" filter="url(#soft)"/>
+    <!-- water -->
+    <rect x="0" y="492" width="1440" height="328" fill="url(#water)" opacity=".85"/>
+    <g stroke="#9FBCB9" stroke-width="1.6" opacity=".45" fill="none">
+      <path d="M60 560 q60 -9 120 0 t120 0 t120 0"/>
+      <path d="M820 596 q60 -9 120 0 t120 0 t120 0"/>
+      <path d="M200 668 q70 -10 140 0 t140 0"/>
+      <path d="M880 700 q70 -10 140 0 t140 0"/>
+      <path d="M40 748 q70 -10 140 0 t140 0 t140 0"/>
+    </g>
+    <!-- bank -->
+    <path d="M0 492 C 120 486 210 500 300 494 L300 520 L0 520 Z" fill="#D8DCC2" opacity=".7"/>
+    <path d="M1180 492 C 1280 484 1360 500 1440 492 L1440 522 L1180 522 Z" fill="#D8DCC2" opacity=".6"/>
+    <!-- bridge -->
+    <g stroke="#7A6A55" fill="none" stroke-linecap="round">
+      <path d="M430 520 C 560 424 900 424 1030 520" stroke-width="9" opacity=".85"/>
+      <path d="M430 528 C 560 434 900 434 1030 528" stroke-width="4" opacity=".55"/>
+      <path d="M430 520 L430 566 M1030 520 L1030 566" stroke-width="10" opacity=".8"/>
+      <path d="M520 486 C 520 512 520 520 520 528 M620 462 L620 500 M730 452 L730 494 M840 462 L840 500 M940 486 L940 524" stroke-width="4" opacity=".6"/>
+      <path d="M452 500 C 580 410 880 410 1008 500" stroke-width="3.4" opacity=".7"/>
+    </g>
+    <!-- arch shadow -->
+    <path d="M560 520 C 620 470 840 470 900 520 Z" fill="#9FB6B4" opacity=".35"/>
+    <!-- two scholars on bridge -->
+    <g opacity=".85">
+      <g transform="translate(668,404)">
+        <path d="M0 46 C -13 46 -17 26 -12 14 L12 14 C17 26 13 46 0 46 Z" fill="#4A5C68"/>
+        <circle cx="0" cy="6" r="8.5" fill="#E9DCC2"/>
+        <path d="M-9 2 C -9 -7 9 -7 9 2 Z" fill="#33414B"/>
+        <path d="M-12 20 L-24 34" stroke="#4A5C68" stroke-width="5" stroke-linecap="round" fill="none"/>
+      </g>
+      <g transform="translate(726,406)">
+        <path d="M0 44 C -12 44 -16 25 -11 13 L11 13 C16 25 12 44 0 44 Z" fill="#8A5A46"/>
+        <circle cx="0" cy="5" r="8" fill="#E9DCC2"/>
+        <path d="M-8 1 C -8 -7 8 -7 8 1 Z" fill="#6B4433"/>
+        <path d="M11 19 L24 30" stroke="#8A5A46" stroke-width="5" stroke-linecap="round" fill="none"/>
+      </g>
+    </g>
+    <!-- willow -->
+    <g stroke="#6E7F55" fill="none" stroke-linecap="round" opacity=".9">
+      <path d="M96 500 C 100 400 92 330 104 250" stroke-width="13"/>
+      <path d="M104 268 C 130 250 160 246 186 254" stroke-width="6"/>
+      <path d="M100 320 C 76 306 56 306 34 314" stroke-width="5"/>
+    </g>
+    <g stroke="#8AA468" fill="none" stroke-width="2.2" opacity=".85" stroke-linecap="round">
+      <path d="M120 262 C 116 330 126 400 112 470"/><path d="M146 258 C 148 320 140 386 152 452"/>
+      <path d="M172 256 C 176 316 168 380 182 444"/><path d="M96 286 C 88 350 98 412 84 476"/>
+      <path d="M66 308 C 58 366 68 420 56 478"/><path d="M42 314 C 34 366 44 414 32 470"/>
+      <path d="M196 262 C 204 318 194 372 206 428"/>
+    </g>
+    <g fill="#9CB87A" opacity=".8">
+      <ellipse cx="112" cy="470" rx="4" ry="9"/><ellipse cx="152" cy="452" rx="4" ry="9"/>
+      <ellipse cx="182" cy="444" rx="4" ry="9"/><ellipse cx="84" cy="476" rx="4" ry="9"/>
+      <ellipse cx="56" cy="478" rx="4" ry="9"/><ellipse cx="206" cy="428" rx="4" ry="9"/>
+    </g>
+    <!-- reeds right -->
+    <g stroke="#7E9463" stroke-width="3" fill="none" opacity=".8" stroke-linecap="round">
+      <path d="M1320 620 C 1316 570 1324 540 1318 512"/><path d="M1348 626 C 1350 578 1342 548 1352 520"/>
+      <path d="M1376 630 C 1382 586 1372 556 1384 530"/><path d="M1290 616 C 1284 578 1292 552 1286 528"/>
+    </g>
+    <g fill="#8E7A4E" opacity=".75">
+      <ellipse cx="1318" cy="506" rx="5" ry="15"/><ellipse cx="1352" cy="514" rx="5" ry="15"/>
+      <ellipse cx="1384" cy="524" rx="5" ry="15"/><ellipse cx="1286" cy="522" rx="5" ry="15"/>
+    </g>
+    <ellipse cx="720" cy="500" rx="900" ry="20" fill="#FBF7EC" opacity=".35" filter="url(#soft)"/>
+  </svg>
+  <canvas id="fishCv"></canvas>
+
+  <div class="heroIn">
+    <div class="heroSeal"><b>莊子 · 秋水</b><span>互動學習卷</span></div>
+    <h1 class="title">濠梁之辯<br><em>魚樂知否</em></h1>
+    <p class="subtitle">兩千三百年前的一場橋上對話，問的其實是三個今天的問題：<br>我怎麼知道牠快樂？我能不能真的懂你？我的判斷，憑什麼算數？</p>
+    <div class="heroQuote">「鯈魚出遊從容，是魚之樂也。」</div>
+    <div class="heroBtns">
+      <button class="btn" data-go="yuanwen">展卷而讀 ▸</button>
+      <button class="btn ghost" data-go="jiance">直接挑戰 · 學習檢核</button>
+    </div>
+    <div class="heroTags">
+      <span class="tag">卷一 · 原文逐句</span><span class="tag">卷二 · 辯論解剖</span>
+      <span class="tag">卷三 · 三問三答</span><span class="tag">互動測驗 × 3</span><span class="tag">結業印章</span>
+    </div>
+  </div>
+  <div class="scrollHint">向下滑展卷<i></i></div>
+</header>
+
+<!-- ================= 原文 ================= -->
+<section class="blk" id="yuanwen">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag">卷之一</span>
+      <h2 class="secT">濠梁原文 · 逐句展卷</h2>
+      <p class="secSub">點選任意一句，即可展開白話譯解與哲學注釋；亦可按「自動展卷」讓全篇依序開展。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="scrollBox reveal">
+      <div class="scrollTools">
+        <button class="btn sm" id="autoBtn">▶ 自動展卷</button>
+        <button class="btn sm ghost" id="expandAll">全部展開</button>
+        <button class="btn sm ghost" id="speakBtn" style="display:none">🔊 朗讀全文</button>
+        <span class="small muted" style="margin-left:auto">《莊子 · 秋水》末章</span>
+      </div>
+      <div class="lineList" id="lineList"></div>
+    </div>
+
+    <div class="noteBox gold reveal" style="margin-top:22px">
+      <b>一句话说完這場辯論：</b>惠子問的是「你<b>有沒有資格</b>知道」（知識的證成），莊子答的是「我<b>就在這裡</b>知道了」（知識的發生）。兩人說的其實不是同一個「知」——這正是三問的起點。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 辯論解剖 ================= -->
+<section class="blk" id="bianjie">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag red">卷之二</span>
+      <h2 class="secT">辯論解剖 · 三種「知」的交鋒</h2>
+      <p class="secSub">莊子的回應不只是機鋒，而是一整套關於「知」的立場。拆開來看，共有三層。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="three">
+      <div class="dcard reveal" data-d="1">
+        <div class="ic">壹</div>
+        <h4>觀察推論：由「從容」知「樂」</h4>
+        <p>莊子的證據只有一個：魚「出遊從容」。這是<span class="key">從外顯行為推論內在狀態</span>——和現代動物行為學的方法結構完全相同，只是沒有儀器與統計。知識的起點，永遠是觀察。</p>
+      </div>
+      <div class="dcard reveal" data-d="2">
+        <div class="ic">貳</div>
+        <h4>反詰：惠子的原則會自我推翻</h4>
+        <p>「子非我，安知我不知魚之樂？」若「非 X 則不能知 X」普遍成立，那麼惠子也不能知莊子，甚至不能知任何人。<span class="indT">該原則一旦普遍化就自相矛盾</span>，所以它不能當作絕對標準。</p>
+      </div>
+      <div class="dcard reveal" data-d="3">
+        <div class="ic">參</div>
+        <h4>歸本：「我知之濠上也」</h4>
+        <p>莊子把「安知」（怎能知道）悄悄轉成「安知」（在哪裡知道），答案是：<span class="key">在濠水橋上，在此時此地、與魚共在的當下</span>。這是情境中的體知，不是命題的證成——審美的知、感通的知。</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin:44px 0 14px;font-size:1.18rem;letter-spacing:.08em">▎兩種「知」的對照表</h3>
+    <div class="tw reveal">
+      <table class="cmp">
+        <thead><tr><th style="width:16%">對照項</th><th style="width:42%">惠子之知（求證之路）</th><th style="width:42%">莊子之知（濠上之路）</th></tr></thead>
+        <tbody>
+          <tr><td>知識型態</td><td>命題之知：知道「某事為真」（know-that）</td><td>體知／感通之知：在情境中領會（know-how、embodied knowing）</td></tr>
+          <tr><td>方法</td><td>名實辨析、邏輯推論、要求證據</td><td>觀察姿態、移情投射、物我相忘</td></tr>
+          <tr><td>人稱視角</td><td>第三人稱（客觀、可旁觀）</td><td>第一人稱，乃至不分彼此（魚我相忘）</td></tr>
+          <tr><td>檢證標準</td><td>可重複、可反駁、可公開檢驗</td><td>可共感、可涵養、可被更細緻的觀察修正</td></tr>
+          <tr><td>長處</td><td>能糾錯、能累積、能保障性命與公共事務</td><td>能触及意義、美感與生命的整體感</td></tr>
+          <tr><td>風險</td><td>淪為概念遊戲，把世界切碎而失去生命感</td><td>過度投射、難以糾錯，可能把「我覺得」當「事實」</td></tr>
+          <tr><td>現代對應</td><td>科學、實證研究、動物行為學、臨床指引</td><td>美學、同理心、專家直覺、熟練照護者的判斷</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="noteBox reveal" style="margin-top:18px">
+      <b>關鍵洞察：</b>這場辯論沒有輸贏。莊子並沒有證明「魚真的快樂」這個命題，他做的是<b>換了一個「知」的語言遊戲</b>——把「知識」從「命題的證成」轉為「生命的相遇」。理解了這一點，三個現代問題就有了座標。
+    </div>
+  </div>
+</section>
+
+<!-- ================= Q1 ================= -->
+<section class="blk" id="q1">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag jade">卷之三 · 第一問</span>
+      <h2 class="secT">莊子如何知魚之樂？<br class="mHide">飼主如何知毛小孩之樂？</h2>
+      <p class="secSub">從濠水橋上的一瞥，到今天客廳裡的一隻貓——「知道牠快樂」這件事，究竟是如何發生的？</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="twoCol">
+      <div class="card orn reveal">
+        <div class="cardH"><span class="no">甲</span><h3>莊子的三條「知」路</h3></div>
+        <p class="small muted" style="margin-bottom:12px">他不是「證明」魚快樂，而是以三種方式「領會」魚快樂：</p>
+        <ol style="font-size:.95rem">
+          <li><b class="key">行為觀察</b>：唯一被說出口的證據是「出遊從容」——游動的节奏、姿態、無逃避無緊繃。<span class="muted small">由外推內，這是所有動物情緒判斷的起點。</span></li>
+          <li><b class="key">移情共感</b>：莊子自己正在「遊」，心境閒適，於是把這份「遊」感通到魚身上。<span class="muted small">美學上的「以我觀物，故物皆著我之色彩」。</span></li>
+          <li><b class="key">當下同在</b>：「我知之濠上也」——知不發生在推論裡，而發生在<span class="hl">此時、此地、與魚共在的場域</span>中。<span class="muted small">是一種參與式的、身體在場的知識。</span></li>
+        </ol>
+        <div class="noteBox gold" style="margin-bottom:0">
+          <b>注意：</b>莊子沒有宣稱這是「確證」。他主張的是——「知」有不同的層級，濠上之知是<b>真實的領會</b>，但不是<b>可被第三人稱驗證的事實</b>。
+        </div>
+      </div>
+
+      <div class="card orn reveal" data-d="1">
+        <div class="cardH"><span class="no">乙</span><h3>飼主能知道毛小孩快樂嗎？</h3></div>
+        <p style="font-size:.98rem"><b class="jadeT">我的答案：能知道得很多，但無法知道得完全。</b></p>
+        <p class="small" style="margin-bottom:8px"><b class="key">能知道的（而且相當可靠）：</b></p>
+        <ul class="small" style="margin-top:0">
+          <li><b>行為指標</b>：狗——身體柔軟度、尾巴位置與擺動方式、play bow（邀玩鞠躬）、耳朵與嘴角、食慾與睡眠；貓——<span class="hl">慢眨眼</span>、呼嚕、揉蹭、尾巴直立项端微彎、進食與理毛的规律。</li>
+          <li><b>壓力訊號</b>：夾尾、舔唇、非困倦的打哈欠、飛機耳、瞳孔放大、躲藏、過度理毛、破壞行為、姿勢僵住。</li>
+          <li><b>生理佐證</b>：皮質醇、心率變異度（HRV）、催產素——讓「快樂」有了可測量的相關指標。</li>
+          <li><b>長期熟習</b>：與同一隻動物共同生活多年，飼主對「牠今天不對勁」的辨識準確度，常高過初次接觸的專業人員。</li>
+        </ul>
+        <p class="small" style="margin-bottom:8px"><b class="key">無法跨越的四道限制：</b></p>
+        <ul class="small" style="margin-top:0">
+          <li><b>語言缺口</b>：牠無法自我報告。「快樂」是主觀感受（感質 qualia），我們永遠只能<b>推論</b>，不能<b>取得</b>。</li>
+          <li><b>擬人化偏差</b>：狗的「微笑」可能是散熱或緊張；露齒可能是威脅。人類表情語意不能直接移植。</li>
+          <li><b>訊號的多義性</b>：同一個搖尾巴，可以是喜悅、警戒、焦躁或服從——<b>脫離脈絡的單一訊號沒有意義</b>。</li>
+          <li><b>飼主的動機偏差</b>：我們太希望牠快樂，因而容易把「我願意的解釋」當成「事實」，也可能忽略疼痛與疾病。</li>
+        </ul>
+        <div class="noteBox" style="margin-bottom:0">
+          <b>結論：</b>飼主之知 ＝ <span class="key">有根據的推論</span> ＋ <span class="key">長期相處的熟習性直覺</span> ＋ <span class="key">行為科學的校準</span>。它是一種「可靠的判斷」，而非「確證的事實」。所以最負責任的姿勢是：<b>多重指標交叉比對、長期記錄、承認不確定，必要時交給獸醫行為專業。</b>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin:44px 0 14px;font-size:1.18rem;letter-spacing:.08em">▎三種「知魚者」的對照</h3>
+    <div class="tw reveal">
+      <table class="cmp">
+        <thead><tr><th style="width:15%">角色</th><th style="width:22%">依據</th><th style="width:22%">方法</th><th style="width:20%">可信度</th><th style="width:21%">最大盲點</th></tr></thead>
+        <tbody>
+          <tr><td>莊子（濠上）</td><td>魚的姿態「從容」＋自己的遊心</td><td>觀察＋移情＋當下同在</td><td>審美與生命層面真實，命題層面不可驗證</td><td>可能把自我心境投射為魚的狀態</td></tr>
+          <tr><td>現代飼主</td><td>日常行為、食慾睡眠、互動习惯</td><td>長期熟習的直覺＋經驗歸納</td><td>對「這隻」個體相當準確</td><td>動機偏差、擬人化、忽略隱性疼痛</td></tr>
+          <tr><td>動物行為學家</td><td>可編碼的行為指標、生理數據</td><td>系統觀察、對照、統計</td><td>可重複、可糾錯、可推廣</td><td>抽離脈絡後，可能漏掉個體的細微差異</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="noteBox reveal" style="margin-top:18px">
+      <b>三者並非互斥：</b>飼主的在地知識提供「假設」，行為學提供「檢驗」，而莊子提醒我們——即使全部測完，牠的快樂仍然有一部分只能被<b>陪伴</b>，不能被<b>證明</b>。
+    </div>
+
+    <!-- 寵物情緒測驗 -->
+    <div class="reveal" style="margin-top:46px">
+      <h3 style="font-size:1.22rem;letter-spacing:.08em;margin-bottom:8px">▎互動實作：毛小孩情緒辨識小測驗</h3>
+      <p class="small muted" style="margin-bottom:16px">看看圖解中的身體語言，判斷牠的狀態。這正是「由外推內」的練習——也是莊子與飼主共用的方法。</p>
+      <div class="quizBox">
+        <div class="quizTop">
+          <span class="pill g">情境辨識</span>
+          <div class="qbar"><i id="petBar"></i></div>
+          <span class="small muted" id="petCount">第 1 / 5 題</span>
+        </div>
+        <div class="quizBody" id="petQuiz"></div>
+        <div class="quizFoot">
+          <span class="scorePill" id="petScore">得分：０</span>
+          <div style="display:flex;gap:10px">
+            <button class="btn sm ghost" id="petReset">重新挑戰</button>
+            <button class="btn sm" id="petNext" disabled>下一題 ▸</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="noteBox warn reveal" style="margin-top:22px">
+      <b>延伸思考：</b>既然你的判斷<b>可能出錯</b>，你要如何為毛小孩設計一套「校準機制」？（提示：多重指標、影像記錄、環境變項對照、定期健康檢查、請第二雙眼睛覆核。）莊子的知不會被推翻，但飼主的知<b>應該</b>允許被推翻。
+    </div>
+  </div>
+</section>
+
+<!-- ================= Q2 ================= -->
+<section class="blk" id="q2">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag">卷之三 · 第二問</span>
+      <h2 class="secT">「感同身受」可能嗎？<br class="mHide">人真能完全理解別人的感受？</h2>
+      <p class="secSub">同一場雨落在同一座亭子，四個人的心裡卻下了四場不同的雨。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="banner reveal">
+      <svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="秋雨亭中四人">
+        <defs>
+          <linearGradient id="rsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFF3EE"/><stop offset="1" stop-color="#DDE7E4"/></linearGradient>
+          <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C6B72"/><stop offset="1" stop-color="#3E4C54"/></linearGradient>
+        </defs>
+        <rect width="1200" height="300" fill="url(#rsky)"/>
+        <g stroke="#B9C6C2" stroke-width="1.4" opacity=".8">
+          <path d="M0 60 L1200 60 M0 120 L1200 120 M0 190 L1200 190" opacity=".35"/>
+        </g>
+        <!-- pond -->
+        <path d="M0 250 C 200 236 420 262 640 248 C 860 236 1040 260 1200 246 L1200 300 L0 300 Z" fill="#C6D6D3" opacity=".85"/>
+        <g stroke="#9BB2AF" stroke-width="1.5" fill="none" opacity=".55">
+          <ellipse cx="200" cy="276" rx="30" ry="6"/><ellipse cx="520" cy="284" rx="42" ry="7"/><ellipse cx="900" cy="272" rx="34" ry="6"/>
+        </g>
+        <!-- pavilion -->
+        <g>
+          <path d="M330 118 L600 62 L870 118 L840 128 L600 80 L360 128 Z" fill="url(#roof)"/>
+          <path d="M330 118 C 316 124 306 132 300 142 L336 130 Z" fill="#3E4C54"/>
+          <path d="M870 118 C 884 124 894 132 900 142 L864 130 Z" fill="#3E4C54"/>
+          <rect x="356" y="128" width="488" height="12" fill="#8A6A46"/>
+          <rect x="380" y="140" width="14" height="112" fill="#9C7A50"/>
+          <rect x="806" y="140" width="14" height="112" fill="#9C7A50"/>
+          <rect x="356" y="248" width="488" height="12" fill="#8A6A46"/>
+          <path d="M600 140 L600 248" stroke="#B99A6A" stroke-width="6" opacity=".5"/>
+        </g>
+        <!-- four figures -->
+        <g>
+          <g transform="translate(440,186)"><path d="M0 62 C -18 62 -24 34 -17 18 L17 18 C24 34 18 62 0 62 Z" fill="#4A5C68"/><circle cx="0" cy="8" r="11" fill="#EBDDC3"/><path d="M-6 14 C -3 22 3 22 6 14" stroke="#D8D2C4" stroke-width="3" fill="none"/><circle cx="-4" cy="6" r="1.4" fill="#33302A"/><circle cx="4" cy="6" r="1.4" fill="#33302A"/><rect x="14" y="34" width="10" height="9" rx="2" fill="#C9A24A" opacity=".8"/></g>
+          <g transform="translate(540,190)"><path d="M0 58 C -16 58 -22 32 -15 17 L15 17 C22 32 16 58 0 58 Z" fill="#7C6BA0"/><circle cx="0" cy="7" r="10.5" fill="#EBDDC3"/><circle cx="-4" cy="5" r="1.4" fill="#33302A"/><circle cx="4" cy="5" r="1.4" fill="#33302A"/><path d="M-4 12 C -1 10 1 10 4 12" stroke="#33302A" stroke-width="1.4" fill="none"/><rect x="-20" y="30" width="14" height="18" rx="2" fill="#D9CDB4" transform="rotate(-12 -13 39)"/></g>
+          <g transform="translate(660,188)"><path d="M0 60 C -17 60 -23 33 -16 18 L16 18 C23 33 17 60 0 60 Z" fill="#B5654F"/><circle cx="0" cy="8" r="10.5" fill="#EBDDC3"/><path d="M-11 2 C -8 -8 8 -8 11 2 Z" fill="#4A3A30"/><circle cx="-4" cy="6" r="1.4" fill="#33302A"/><circle cx="4" cy="6" r="1.4" fill="#33302A"/><path d="M-4 13 C -1 16 1 16 4 13" stroke="#33302A" stroke-width="1.4" fill="none"/><path d="M14 34 L30 40 L28 50 L12 44 Z" fill="#D9C7A0"/></g>
+          <g transform="translate(756,206)"><path d="M0 42 C -12 42 -16 24 -11 13 L11 13 C16 24 12 42 0 42 Z" fill="#5E8A63"/><circle cx="0" cy="5" r="9" fill="#EBDDC3"/><path d="M-5 3 C -3 1 -1 1 1 3" stroke="#33302A" stroke-width="1.4" fill="none"/><path d="M2 3 C 4 1 6 1 8 3" stroke="#33302A" stroke-width="1.4" fill="none" transform="translate(-4 0)"/><path d="M-4 10 C -1 14 2 14 5 10" stroke="#33302A" stroke-width="1.6" fill="none"/><path d="M11 20 L26 30" stroke="#5E8A63" stroke-width="5" stroke-linecap="round"/></g>
+        </g>
+        <!-- rain -->
+        <g stroke="#A9BCC4" stroke-width="1.6" opacity=".6" stroke-linecap="round">
+          <path d="M80 20 L60 70"/><path d="M150 0 L128 56"/><path d="M230 40 L210 92"/><path d="M300 10 L280 60"/>
+          <path d="M940 20 L920 72"/><path d="M1010 0 L988 58"/><path d="M1080 44 L1060 96"/><path d="M1150 14 L1130 66"/>
+          <path d="M110 140 L92 190"/><path d="M1050 150 L1032 200"/><path d="M180 210 L162 258"/><path d="M990 220 L972 268"/>
+        </g>
+        <g fill="#8AA468" opacity=".7">
+          <path d="M60 250 C 50 214 62 190 58 168" stroke="#7E9463" stroke-width="3" fill="none"/>
+          <path d="M1140 252 C 1150 216 1138 192 1142 170" stroke="#7E9463" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="figGrid reveal">
+      <button class="fig" data-fig="0"><span class="seal">儒</span><h5>致仕老儒</h5><span>七十四歲 · 獨坐</span></button>
+      <button class="fig" data-fig="1"><span class="seal">少</span><h5>趕考少年</h5><span>十九歲 · 赴州試</span></button>
+      <button class="fig" data-fig="2"><span class="seal">商</span><h5>綢緞莊掌櫃</h5><span>四十二歲 · 女子</span></button>
+      <button class="fig" data-fig="3"><span class="seal">童</span><h5>鄰家孩童</h5><span>六歲 · 赤足</span></button>
+    </div>
+    <div class="bubble reveal" id="figBubble">
+      <div class="who2">點選上方任一人物</div>
+      <div class="said">同一場雨，會在他心裡落下不同的聲音。</div>
+      <div class="why">這是理解他人的第一课：情緒從來不是「事件」的函數，而是「事件 × 個人生命史 × 當下處境 × 身體狀態」的函數。</div>
+    </div>
+
+    <div class="twoCol" style="margin-top:34px">
+      <div class="card reveal">
+        <div class="cardH"><span class="no">甲</span><h3>為什麼「完全理解」不可能？</h3></div>
+        <div class="acc" data-acc>
+          <div class="accH"><span class="dot">一</span><h4>感受的第一人稱私密性</h4><span class="pm">＋</span></div>
+          <div class="accB"><div><div class="in">痛、羞、悲是「感質」（qualia）——只能被經歷，不能被傳遞。我可以測量你的心率、讀懂你的表情，但你「感覺起來像什麼」，只有你能接觸。這是<b>結構性的界限</b>，不是能力不足。</div></div></div>
+        </div>
+        <div class="acc" data-acc>
+          <div class="accH"><span class="dot">二</span><h4>生命史不可複製</h4><span class="pm">＋</span></div>
+          <div class="accB"><div><div class="in">同一句「我失戀了」，落在曾被至親拋棄的人與初戀的少年身上，重量完全不同。我沒有活過你的二十年，就無法在你的座標系裡感受你的座標。</div></div></div>
+        </div>
+        <div class="acc" data-acc>
+          <div class="accH"><span class="dot">三</span><h4>語言是有損壓縮</h4><span class="pm">＋</span></div>
+          <div class="accB"><div><div class="in">說出口的，是被概念篩選過的版本；而最真實的部分往往正是「難以言喻」的那部分。莊子早就說了：「意之所隨者，不可以言傳也」、「得意而忘言」。</div></div></div>
+        </div>
+        <div class="acc" data-acc>
+          <div class="accH"><span class="dot">四</span><h4>同理常淪為投射</h4><span class="pm">＋</span></div>
+          <div class="accB"><div><div class="in">「如果是我，我會很難過」——這句看似同理，其實是<b>把自己的感受搬到對方身上</b>。再加上「透明度錯覺」：我們高估自己情緒的明顯程度，也高估別人情緒的可讀性。</div></div></div>
+        </div>
+        <div class="acc" data-acc>
+          <div class="accH"><span class="dot">五</span><h4>文化決定了情緒的形狀</h4><span class="pm">＋</span></div>
+          <div class="accB"><div><div class="in">情緒的表達規則（display rules）與分類本身因文化而異。有些語言擁有我們沒有的情緒詞（如日語「物哀」、德語 Schadenfreude）；沒有那個詞，我們甚至不容易看見那種感受。</div></div></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-d="1">
+        <div class="cardH"><span class="no">乙</span><h3>但「理解」仍有層級可抵達</h3></div>
+        <p class="small muted" style="margin-bottom:12px">點擊階梯，看看每一層做了什麼、以及它為什麼不需要「完全懂」。</p>
+        <div class="ladder" id="ladder">
+          <div class="step" data-step="0"><span class="sn">一</span><div><div class="st">情緒感染</div><div class="sd">自動化的生理同步：你打哈欠我也打哈欠，你落淚我胸口發緊。這一層幾乎不需要理解，是身體先抵達的共鳴。</div></div></div>
+          <div class="step" data-step="1"><span class="sn">二</span><div><div class="st">認知同理（換位思考）</div><div class="sd">我不必感受到你的感受，但我可以理解「你為什麼會這樣感受」——你的理由、你的框架、你的處境。這一層最容易被誤以為是「懂」，其實只是「明白」。</div></div></div>
+          <div class="step" data-step="2"><span class="sn">三</span><div><div class="st">同理關懷</div><div class="sd">你的苦，成為我在意的苦。重點從「我懂不懂」轉向「我在不在乎」。<b>這一層完全不需要完全理解也能成立。</b></div></div></div>
+          <div class="step" data-step="3"><span class="sn">四</span><div><div class="st">行動與陪伴</div><div class="sd">做出對「他」有用的事，而不是對「我認為的他」有用的事：留下來、安靜地坐著、遞一杯水、幫他擋掉一個電話。被聽見與被接納本身就有療效。</div></div></div>
+        </div>
+        <div class="noteBox" style="margin:16px 0 0">
+          <b>莊子的答案：</b>濠梁之辯裡，莊子與惠子彼此「不知」，卻仍能同遊共賞。人我之間的理解是一座<span class="key">「梁」（橋）</span>，不是「同一」。理解是<b>持續靠近的過程</b>，不是<b>一次完成的佔有</b>。承認「子非魚」，同理才不會變成傲慢。
+        </div>
+      </div>
+    </div>
+
+    <!-- 校準句式生成器 -->
+    <div class="card orn reveal" style="margin-top:34px">
+      <div class="cardH"><span class="no">丙</span><h3>同理心「校準句式」生成器</h3></div>
+      <p class="small muted" style="margin-bottom:14px">把「我完全懂你」換成「我猜……，是這樣嗎？」——一句話的差別，就是<b>斷言</b>與<b>邀請糾正</b>的差別。選擇情境與你的直覺，生成可用的說法。</p>
+      <div class="genRow" id="genScene"></div>
+      <div class="genRow" id="genGuess"></div>
+      <div class="genOut" id="genOut">請先選擇一個情境與一個你的直覺猜測。</div>
+    </div>
+
+    <div class="noteBox warn reveal" style="margin-top:22px">
+      <b>延伸思考：</b>什麼時候「我完全懂你」反而是一種傷害？（提示：當它終止了對方繼續說明的必要、當它把對方的獨特經驗歸類成我的模板、當它成為要求對方「趕快好起來」的藉口。）
+    </div>
+  </div>
+</section>
+
+<!-- ================= Q3 ================= -->
+<section class="blk" id="q3">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag gold">卷之三 · 第三問</span>
+      <h2 class="secT">判斷一定要有科學根據嗎？<br class="mHide">觀察、經驗、直覺算不算數？</h2>
+      <p class="secSub">左邊是看雲的老農，右邊是測星的學者。他們不是敵人，而是分工。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="banner reveal">
+      <svg viewBox="0 0 1200 260" width="100%" role="img" aria-label="老農觀雲與學者測算">
+        <defs>
+          <linearGradient id="q3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBF6E9"/><stop offset="1" stop-color="#E9F0E9"/></linearGradient>
+        </defs>
+        <rect width="1200" height="260" fill="url(#q3sky)"/>
+        <!-- left: terraces -->
+        <g>
+          <path d="M0 190 C 90 176 170 196 250 186 C 330 176 400 194 470 186 L470 260 L0 260 Z" fill="#B9CFA6" opacity=".75"/>
+          <path d="M0 214 C 100 202 180 220 260 210 C 340 200 410 216 470 210 L470 260 L0 260 Z" fill="#93B57E" opacity=".7"/>
+          <path d="M0 238 C 110 228 190 244 280 236 C 360 228 420 240 470 236 L470 260 L0 260 Z" fill="#6F9660" opacity=".65"/>
+          <g stroke="#6E8B55" stroke-width="2" opacity=".7"><path d="M40 190 L40 176 M70 188 L70 174 M100 192 L100 178 M140 186 L140 172 M180 192 L180 178 M230 186 L230 172 M280 190 L280 176 M330 184 L330 170 M380 190 L380 176 M430 186 L430 172"/></g>
+          <!-- clouds -->
+          <g fill="#DDE6E6" opacity=".9"><ellipse cx="120" cy="66" rx="52" ry="20"/><ellipse cx="168" cy="56" rx="40" ry="22"/><ellipse cx="80" cy="56" rx="34" ry="17"/></g>
+          <g fill="#C8D6D8" opacity=".7"><ellipse cx="300" cy="92" rx="60" ry="18"/><ellipse cx="348" cy="82" rx="40" ry="20"/></g>
+          <g stroke="#8C9EA2" stroke-width="1.4" opacity=".55"><path d="M96 92 L88 112 M120 96 L112 118 M150 90 L142 110"/></g>
+          <!-- swallows -->
+          <g stroke="#5A6A72" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M210 130 q8 -7 16 0 M226 130 q8 -7 16 0"/><path d="M260 112 q7 -6 14 0 M274 112 q7 -6 14 0"/></g>
+          <!-- farmer -->
+          <g transform="translate(300,150)">
+            <path d="M0 92 C -20 92 -26 56 -18 38 L18 38 C26 56 20 92 0 92 Z" fill="#7C6A4A"/>
+            <circle cx="0" cy="26" r="13" fill="#E7D6B6"/>
+            <path d="M-26 16 C -14 -2 14 -2 26 16 C 12 8 -12 8 -26 16 Z" fill="#C9A96A"/>
+            <path d="M-24 18 C -12 10 12 10 24 18" stroke="#A98A4E" stroke-width="2" fill="none"/>
+            <circle cx="-4" cy="25" r="1.6" fill="#33302A"/><circle cx="5" cy="25" r="1.6" fill="#33302A"/>
+            <path d="M16 52 L44 30" stroke="#7C6A4A" stroke-width="7" stroke-linecap="round"/>
+            <path d="M-16 54 L-34 74" stroke="#7C6A4A" stroke-width="7" stroke-linecap="round"/>
+          </g>
+        </g>
+        <!-- center mist divider -->
+        <rect x="560" y="0" width="80" height="260" fill="#FBF6E9" opacity=".55"/>
+        <path d="M600 20 L600 240" stroke="#C39A3F" stroke-width="1" stroke-dasharray="5 8" opacity=".6"/>
+        <!-- right: scholar -->
+        <g>
+          <rect x="660" y="180" width="500" height="14" rx="4" fill="#A9855A" opacity=".8"/>
+          <rect x="700" y="194" width="14" height="60" fill="#9A7A50" opacity=".8"/>
+          <rect x="1090" y="194" width="14" height="60" fill="#9A7A50" opacity=".8"/>
+          <!-- armillary sphere -->
+          <g transform="translate(780,120)" stroke="#4E6A78" fill="none" stroke-width="3">
+            <circle r="46" opacity=".9"/><ellipse rx="46" ry="16" opacity=".8"/><ellipse rx="16" ry="46" opacity=".8"/>
+            <ellipse rx="34" ry="34" transform="rotate(30)" opacity=".55"/><circle r="6" fill="#C39A3F" stroke="none"/>
+          </g>
+          <!-- scroll -->
+          <g transform="translate(890,150)">
+            <rect x="0" y="0" width="86" height="34" rx="3" fill="#F6EEDC" stroke="#B49A6A" stroke-width="2"/>
+            <g stroke="#8A9AA0" stroke-width="1.4" opacity=".8"><path d="M8 8 L78 8 M8 16 L60 16 M8 24 L72 24"/></g>
+            <circle cx="-4" cy="17" r="7" fill="#D9C7A0" stroke="#B49A6A" stroke-width="2"/><circle cx="90" cy="17" r="7" fill="#D9C7A0" stroke="#B49A6A" stroke-width="2"/>
+          </g>
+          <!-- abacus -->
+          <g transform="translate(1000,146)">
+            <rect x="0" y="0" width="86" height="40" rx="3" fill="#F3E7CE" stroke="#A9855A" stroke-width="2.5"/>
+            <g stroke="#8A6A46" stroke-width="2"><path d="M18 2 L18 38 M40 2 L40 38 M62 2 L62 38 M2 14 L84 14"/></g>
+            <g fill="#6B4E33"><circle cx="18" cy="9" r="4"/><circle cx="40" cy="24" r="4"/><circle cx="62" cy="30" r="4"/><circle cx="18" cy="30" r="4"/><circle cx="40" cy="9" r="4"/></g>
+          </g>
+          <!-- scholar -->
+          <g transform="translate(700,140)">
+            <path d="M0 44 C -18 44 -24 20 -16 4 L16 4 C24 20 18 44 0 44 Z" fill="#3F5A6B"/>
+            <circle cx="0" cy="-8" r="12" fill="#E7D6B6"/>
+            <path d="M-12 -14 C -8 -26 8 -26 12 -14 Z" fill="#2C3E4A"/>
+            <circle cx="-4" cy="-9" r="1.5" fill="#33302A"/><circle cx="5" cy="-9" r="1.5" fill="#33302A"/>
+            <path d="M14 14 L40 26" stroke="#3F5A6B" stroke-width="7" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="card orn reveal" style="margin-bottom:26px">
+      <div class="cardH"><span class="no">答</span><h3>不必「一定」是科學，但要看這件事的性質與代價</h3></div>
+      <p style="font-size:.98rem">科學是人類目前<b class="key">最會自我糾錯</b>的認知工具，但它不是唯一的知識來源，也不可能是：科學本身也建立在觀察、歸納與若干無法被證明的大前提之上；而科學能告訴我們「是什麼」，卻無法告訴我們「應該如何」。</p>
+      <p style="font-size:.98rem;margin-bottom:0">所以正確的問題不是「<span class="muted">要不要科學根據</span>」，而是「<span class="hl">這件事該由哪一種知來負責</span>」。<b>點擊下面四張卡，翻到背面看看每種來源「何時可信、何時失靈」。</b></p>
+    </div>
+
+    <div class="grid g4 reveal">
+      <div class="flip" data-flip><div class="flipIn">
+        <div class="face f"><div class="fi">科</div><h4>科學證據<br><span class="small muted" style="font-weight:400">惠子之路</span></h4><p>可重複、可測量、可被反駁，因而可以自我校正並累積。</p><div class="tip">點擊翻面 ▸ 何時可信／失靈</div></div>
+        <div class="face b"><p><b>何時該用：</b>高風險、不可逆、涉及因果與公共安全（用藥、橋梁承重、疫苗、氣候、防疫）。</p><p><b>何時失靈：</b>問題本質是價值與意義；資料不足卻被硬套；把「相關」當「因果」；研究被選擇性引用。</p><p><b>切記：</b>科學不是「真理」，是「目前最不容易錯的答案」。</p><div class="tip">再點一次翻回</div></div>
+      </div></div>
+      <div class="flip" data-flip><div class="flipIn">
+        <div class="face f"><div class="fi">觀</div><h4>觀察<br><span class="small muted" style="font-weight:400">濠上之路</span></h4><p>一切知識的起點，也是科學的原料。莊子的「出遊從容」就是觀察。</p><div class="tip">點擊翻面 ▸ 何時可信／失靈</div></div>
+        <div class="face b"><p><b>長處：</b>能捕捉儀器測不到的脈絡與細節；成本低、即時、貼近現場。</p><p><b>何時失靈：</b>觀察是「理論負載」的——我們看見的常是我們準備好看見的；樣本太小、只記成功案例。</p><p><b>補救：</b>長期、多角度、先寫下預期再看、交叉比對、允許自己被推翻。</p><div class="tip">再點一次翻回</div></div>
+      </div></div>
+      <div class="flip" data-flip><div class="flipIn">
+        <div class="face f"><div class="fi">經</div><h4>生活經驗<br><span class="small muted" style="font-weight:400">匠人之知</span></h4><p>默會知識：「我們知道的，比我們能說出來的多。」</p><div class="tip">點擊翻面 ▸ 何時可信／失靈</div></div>
+        <div class="face b"><p><b>典範：</b>老農看雲識天氣、老中醫望聞問切、老師一眼看出今天誰不對勁、廚師知道麵團好了沒。</p><p><b>何時失靈：</b>難以傳承與檢驗；倖存者偏差（只記得準的那幾次）；環境變了，經驗會失效（氣候變遷下的農諺）。</p><p><b>定位：</b>它是極好的「假設產生器」，但不是「結論」。</p><div class="tip">再點一次翻回</div></div>
+      </div></div>
+      <div class="flip" data-flip><div class="flipIn">
+        <div class="face f"><div class="fi">直</div><h4>直覺<br><span class="small muted" style="font-weight:400">壓縮的經驗</span></h4><p>專家直覺其實是大規模模式辨識的瞬間輸出，並非神秘第六感。</p><div class="tip">點擊翻面 ▸ 何時可信／失靈</div></div>
+        <div class="face b"><p><b>可信條件：</b>領域有穩定規律 ＋ 你有大量練習 ＋ 回饋快速明確（棋手、消防員、資深護理師、主廚）。</p><p><b>不可信條件：</b>高隨機性、回饋稀少或延遲（股票、賭博、政治預測、面試第一印象）——此時「直覺」多半是偏誤。</p><p><b>警訊：</b>越自信不等於越準確；情緒會偽裝成直覺。</p><div class="tip">再點一次翻回</div></div>
+      </div></div>
+    </div>
+
+    <div class="twoCol" style="margin-top:32px">
+      <div class="card reveal">
+        <div class="cardH"><span class="no">衡</span><h3>三個檢核問題：這件事該交給誰？</h3></div>
+        <ol style="font-size:.95rem">
+          <li><b class="key">代價與可逆性？</b>不可逆、高風險（醫療、結構安全、公共政策）→ <b>必須</b>科學證據。可逆、低風險（今天穿什麼、走哪條路、這本書好不好看）→ 觀察、經驗、直覺足矣。</li>
+          <li><b class="key">有穩定規律與快速回饋嗎？</b>有 → 直覺可信；隨機性高、回饋稀少 → 直覺是錯覺。</li>
+          <li><b class="key">這是事實問題，還是價值問題？</b>「什麼是好生活」「該不該原諒」「這幅畫美不美」→ 科學可以提供事實，但不能給出答案；需要倫理、美學、經驗與體悟。</li>
+        </ol>
+        <div class="noteBox gold" style="margin-bottom:0">
+          <b>最佳實務 · 四步流水線：</b><br>
+          <span class="pill r">直覺</span>產生假設 → <span class="pill">觀察</span>蒐集線索 → <span class="pill g">經驗</span>提供脈絡 → <span class="pill" style="background:rgba(195,154,63,.2);color:#8A6A16">科學</span>負責檢驗與糾錯。<br>
+          <span class="small muted">四者不是競爭關係，而是分工關係。</span>
+        </div>
+      </div>
+      <div class="card reveal" data-d="1">
+        <div class="cardH"><span class="no">例</span><h3>六個真實例子</h3></div>
+        <ul class="small" style="line-height:1.9">
+          <li><b class="jadeT">青蒿素</b>：葛洪《肘後備急方》「青蒿一握，以水二升漬，絞取汁」——千年經驗，經現代藥理提取與臨床試驗才成為抗瘧藥物。<span class="muted">經驗提出假設，科學完成驗證。</span></li>
+          <li><b class="key">馬兜鈴酸</b>：沿用千年的藥材，現代研究證實具腎毒性與致癌性。<span class="muted">「用了很久」不等於「安全」。</span></li>
+          <li><b>農諺「蟻搬家、蛇過道，大雨就要到」</b>：對濕度與氣壓變化的在地觀察，可作為輔助，但颱風路徑仍要靠衛星與數值模式。</li>
+          <li><b class="jadeT">護理師的直覺</b>：「這個人不太對勁」而提早監測，救回一命——高經驗、快回饋領域的模式辨識，統計上確實有效。</li>
+          <li><b class="key">同一位護理師重壓一支股票</b>：換到低回饋、高隨機性的領域，同樣的「直覺」立刻失去效力。</li>
+          <li><b>「雨天喝冰的會感冒」</b>：感冒由病毒引起，但受寒可能影響呼吸道防禦——經驗捕捉到了相關，科學才能釐清因果與權重。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- scenario game -->
+    <div class="reveal" style="margin-top:44px">
+      <h3 style="font-size:1.22rem;letter-spacing:.08em;margin-bottom:8px">▎互動實作：這件事，你該主要依靠哪一種知？</h3>
+      <p class="small muted" style="margin-bottom:16px">先看清「風險等級」，再作選擇。選完即顯示解析——注意，多數情境的答案並不是「只有一種」。</p>
+      <div id="scnList"></div>
+      <div class="quizFoot" style="border:1px solid var(--line);border-radius:4px;margin-top:6px">
+        <span class="scorePill" id="scnScore">命中：０ / ６</span>
+        <button class="btn sm ghost" id="scnReset">重新判斷</button>
+      </div>
+    </div>
+
+    <div class="noteBox reveal" style="margin-top:24px">
+      <b>總結第三問：</b>把<b class="key">直覺</b>當作假設產生器，把<b class="key">科學</b>當作假設檢驗器，把<b class="key">生活經驗</b>當作脈絡校準器，把<b class="key">觀察</b>當作一切的材料。過度科學主義會丟掉意義與美感，過度直覺則會陷入確認偏誤、倖存者偏差與後見之明。<span class="hl">關鍵不是「誰對」，而是「什麼問題用什麼工具，並且願意被糾正」。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 結語 ================= -->
+<section class="blk" id="jieshu">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag red">卷之四</span>
+      <h2 class="secT">結語 · 莊子與惠子，我們都需要</h2>
+      <p class="secSub">惠子教我們不要輕信，莊子教我們不要失去感通。少了任何一方，人不是變得傲慢，就是變得荒涼。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal" data-d="1">
+        <div class="cardH"><span class="no">一</span><h3>知魚</h3></div>
+        <p class="small">莊子的知是「在濠上」的知——由姿態而感通，由感通而共在。飼主的知與之同源，只是多了行為科學的校準。<b>能知道得很多，但永遠留一分謙遜。</b></p>
+      </div>
+      <div class="card reveal" data-d="2">
+        <div class="cardH"><span class="no">二</span><h3>知人</h3></div>
+        <p class="small">完全理解他人感受不可能，因為感質私密、生命史不可複製、語言有損。<b>但同理不需要「懂到一模一樣」，只需要願意靠近、願意被糾正、願意留下。</b></p>
+      </div>
+      <div class="card reveal" data-d="3">
+        <div class="cardH"><span class="no">三</span><h3>知事</h3></div>
+        <p class="small">判斷不必只有科學一種來源。<b>代價決定嚴謹度，規律決定直覺的可信度，價值決定科學的邊界。</b>四種知分工，而不是決鬥。</p>
+      </div>
+    </div>
+
+    <div class="card orn reveal" style="margin-top:30px">
+      <div class="cardH"><span class="no">問</span><h3>讀完三問，你較認同哪一種「知」？</h3></div>
+      <p class="small muted" style="margin-bottom:14px">點選你的立場，看看本页讀者的分布（僅計入你在此裝置上的選擇紀錄）。</p>
+      <div class="grid g3">
+        <button class="voteOpt" data-vote="0"><h4>莊子派</h4><p>體悟優先。感受與共在是第一手的真實，數據永遠晚了一步。</p></button>
+        <button class="voteOpt" data-vote="1"><h4>惠子派</h4><p>求證優先。沒有經過檢驗的感受，只能算是猜測。</p></button>
+        <button class="voteOpt" data-vote="2"><h4>濠梁派</h4><p>分工並用。橋的兩端都要有，理解才有路可走。</p></button>
+      </div>
+      <div class="vres" id="vres">
+        <div class="vrow"><span class="vn">莊子派</span><span class="vtrack"><i id="vb0" style="background:linear-gradient(90deg,#4C7A5C,#7FA98A)"></i></span><span class="vp" id="vp0">0%</span></div>
+        <div class="vrow"><span class="vn">惠子派</span><span class="vtrack"><i id="vb1" style="background:linear-gradient(90deg,#2E4A5C,#5C7C90)"></i></span><span class="vp" id="vp1">0%</span></div>
+        <div class="vrow"><span class="vn">濠梁派</span><span class="vtrack"><i id="vb2" style="background:linear-gradient(90deg,#B5382A,#D2503A)"></i></span><span class="vp" id="vp2">0%</span></div>
+        <p class="small muted" id="vComment" style="margin-top:10px"></p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:26px">
+      <div class="cardH"><span class="no">思</span><h3>留白 · 寫下你自己的濠上之知</h3></div>
+      <p class="small muted">挑一題回答，內容只會存在你自己的裝置上。</p>
+      <ol class="small" style="color:var(--ink2)">
+        <li>最近一次你「覺得對方沒事、後來發現不是」的經驗是什麼？當時少了哪一個校準動作？</li>
+        <li>你生命中哪一個重要判斷，是科學無法替你決定的？你依靠了什麼？</li>
+        <li>如果毛小孩能開口說一句話，你最想問牠什麼？你會怎麼驗證牠的回答？</li>
+      </ol>
+      <textarea class="inp" id="reflect" placeholder="在此寫下你的想法……"></textarea>
+      <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="btn sm" id="saveReflect">存入書籤</button>
+        <span class="small muted" id="reflectHint">尚未儲存</span>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin:44px 0 14px;font-size:1.18rem;letter-spacing:.08em">▎名句收藏</h3>
+    <div class="quotes">
+      <div class="quote reveal"><div class="q">子非魚，安知魚之樂？</div><div class="s">《莊子 · 秋水》——惠子之問：知的資格</div></div>
+      <div class="quote reveal" data-d="1"><div class="q">我知之濠上也。</div><div class="s">《莊子 · 秋水》——莊子之答：知的場所</div></div>
+      <div class="quote reveal" data-d="2"><div class="q">吾生也有涯，而知也無涯。</div><div class="s">《莊子 · 養生主》——知的限度與謙遜</div></div>
+      <div class="quote reveal" data-d="3"><div class="q">言者所以在意，得意而忘言。</div><div class="s">《莊子 · 外物》——語言是有損的載具</div></div>
+    </div>
+
+    <div class="card reveal" style="margin-top:28px;text-align:center">
+      <div class="cardH" style="justify-content:center"><span class="no">跡</span><h3>學習足跡</h3></div>
+      <p class="small muted" style="margin-bottom:4px">走過的卷次會自動蓋印；測驗成績亦記錄於此。</p>
+      <div class="track" id="track"></div>
+      <p class="small muted" style="margin:14px 0 0" id="trackStat">尚未開始</p>
+      <button class="btn sm ghost" id="trackReset" style="margin-top:12px">清除足跡</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 檢核 ================= -->
+<section class="blk" id="jiance">
+  <div class="wrap">
+    <div class="secHead reveal">
+      <span class="secTag gold">卷之五</span>
+      <h2 class="secT">學習檢核 · 濠上七問</h2>
+      <p class="secSub">七題選擇，涵蓋三問的核心論證。答完即可領取你的結業印章。</p>
+      <div class="divider"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 L14 8 L21 11 L14 14 L11 21 L8 14 L1 11 L8 8 Z" fill="currentColor" opacity=".8"/></svg></div>
+    </div>
+
+    <div class="quizBox reveal">
+      <div class="quizTop">
+        <span class="pill r">結業檢核</span>
+        <div class="qbar"><i id="fBar"></i></div>
+        <span class="small muted" id="fCount">第 1 / 7 題</span>
+      </div>
+      <div class="quizBody" id="finalQuiz"></div>
+      <div class="quizFoot">
+        <span class="scorePill" id="fScore">得分：０</span>
+        <div style="display:flex;gap:10px">
+          <button class="btn sm ghost" id="fReset">重新作答</button>
+          <button class="btn sm" id="fNext" disabled>下一題 ▸</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert" id="cert">
+      <h3>結業證書</h3>
+      <p class="small" style="letter-spacing:.2em;color:var(--ink3)">莊子秋水 · 濠梁之辯 · 三問研讀卷</p>
+      <div class="nm" id="certName">無名氏</div>
+      <p id="certBody"></p>
+      <p class="small" id="certDate"></p>
+      <div class="stamp" id="certStamp">濠上<br>知魚</div>
+      <div style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn sm" id="printCert">列印證書</button>
+        <button class="btn sm ghost" id="certAgain">再測一次</button>
+      </div>
+    </div>
+
+    <div class="card orn reveal" style="margin-top:30px;text-align:center">
+      <div class="inRow">
+        <input class="inp" id="stuName" placeholder="題名：寫下你的名字或字號" maxlength="16" />
+        <button class="btn" id="makeCert">領取印章 ▸</button>
+      </div>
+      <p class="small muted" style="margin:10px 0 0">完成七題後即可題名領印；未作答亦可領取「展卷之印」。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fq">子非我，安知我不知魚之樂？</div>
+    <p>本卷以《莊子 · 秋水》末章「濠梁之辯」為主軸，延伸探討動物情緒認知、同理心的限度，以及判斷的知識來源。</p>
+    <p>所有插圖皆以 SVG 手繪向量與 Canvas 動畫製作，不含外部圖片資源。</p>
+    <div class="fline"></div>
+    <p class="small">古風互動學習卷 · 魚樂知否 · 供教學與思辨討論之用</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+const $=(s,c)=>(c||document).querySelector(s);
+const $$=(s,c)=>Array.from((c||document).querySelectorAll(s));
+
+/* ---------------- toast ---------------- */
+let toastTimer=null;
+function toast(msg){
+  const t=$('#toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),1900);
+}
+
+/* ---------------- storage ---------------- */
+const SKEY='haoliang_v1';
+let store={track:[],votes:[3,2,5],reflect:'',pet:null,scn:null,fin:null};
+try{const raw=localStorage.getItem(SKEY); if(raw){store=Object.assign(store,JSON.parse(raw));}}catch(e){}
+function save(){try{localStorage.setItem(SKEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------------- reveal ---------------- */
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* ---------------- nav + progress + track ---------------- */
+const SEC=[
+  {id:'yuanwen',t:'原文'},{id:'bianjie',t:'辯解'},{id:'q1',t:'魚樂'},
+  {id:'q2',t:'同理'},{id:'q3',t:'判斷'},{id:'jieshu',t:'結語'},{id:'jiance',t:'檢核'}
+];
+function renderTrack(){
+  const box=$('#track'); if(!box) return;
+  box.innerHTML=SEC.map(s=>'<span class="tseal '+(store.track.indexOf(s.id)>=0?'hit':'')+'" title="'+s.t+'">'+s.t.charAt(0)+'</span>').join('');
+  const done=SEC.filter(s=>store.track.indexOf(s.id)>=0).length;
+  const parts=[];
+  parts.push('展卷 '+done+' / '+SEC.length);
+  if(store.pet!==null) parts.push('毛小孩測驗 '+store.pet+' / 5');
+  if(store.scn!==null) parts.push('情境判斷 '+store.scn+' / 6');
+  if(store.fin!==null) parts.push('學習檢核 '+store.fin+' / 7');
+  $('#trackStat').textContent=parts.join('　·　');
+}
+renderTrack();
+
+const navA=$$('#navLinks a');
+const secEls=SEC.map(s=>document.getElementById(s.id)).filter(Boolean);
+const trackIO=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting && e.intersectionRatio>.25){
+      const id=e.target.id;
+      if(store.track.indexOf(id)<0){store.track.push(id);save();renderTrack();}
+    }
+  });
+},{threshold:[.25,.5]});
+secEls.forEach(el=>trackIO.observe(el));
+
+function onScroll(){
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  $('#prog').style.width=(p*100).toFixed(2)+'%';
+  let cur='hero';
+  secEls.forEach(el=>{if(el.getBoundingClientRect().top<=140) cur=el.id;});
+  navA.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur));
+}
+window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.getAttribute('data-go'));
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+
+/* ---------------- hero canvas: 游魚 ---------------- */
+(function(){
+  const cv=$('#fishCv'); if(!cv) return;
+  const cx=cv.getContext('2d');
+  let W=0,H=0,dpr=1,fish=[],ripples=[],t0=performance.now();
+  const palette=[
+    {b:'rgba(214,140,74,.55)',f:'rgba(214,140,74,.32)'},
+    {b:'rgba(181,72,52,.48)',f:'rgba(181,72,52,.26)'},
+    {c:'rgba(74,96,104,.45)'},
+    {b:'rgba(122,146,104,.45)',f:'rgba(122,146,104,.26)'},
+    {b:'rgba(196,164,86,.5)',f:'rgba(196,164,86,.28)'}
+  ];
+  function size(){
+    const r=cv.parentElement.getBoundingClientRect();
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    W=r.width;H=r.height;
+    cv.width=Math.floor(W*dpr);cv.height=Math.floor(H*dpr);
+    cv.style.width=W+'px';cv.style.height=H+'px';
+    cx.setTransform(dpr,0,0,dpr,0,0);
+    build();
+  }
+  function build(){
+    fish=[];
+    const n=W<640?5:8;
+    for(let i=0;i<n;i++){
+      const p=palette[i%palette.length];
+      const len=16+Math.random()*26;
+      fish.push({
+        x:Math.random()*W, baseY:H*(0.63+Math.random()*0.3), y:0,
+        len:len, dir:Math.random()<.5?1:-1,
+        sp:(6+Math.random()*16)*(len/28),
+        ph:Math.random()*Math.PI*2, amp:4+Math.random()*12,
+        bob:.35+Math.random()*.7,
+        c1:p.b||p.c, c2:p.f||p.c
+      });
+    }
+  }
+  function drawFish(f,t){
+    const wag=Math.sin(t*2.6+f.ph);
+    const y=f.baseY+Math.sin(t*f.bob+f.ph)*f.amp;
+    cx.save();
+    cx.translate(f.x,y);
+    cx.scale(f.dir*(f.len/30),(f.len/30));
+    cx.rotate(wag*0.1);
+    cx.beginPath();
+    cx.moveTo(20,0);
+    cx.bezierCurveTo(10,-10,-8,-10,-16,0);
+    cx.bezierCurveTo(-8,10,10,10,20,0);
+    cx.fillStyle=f.c1;cx.fill();
+    cx.beginPath();
+    cx.moveTo(-15,0);
+    cx.quadraticCurveTo(-26,-9+wag*7,-33,-5+wag*10);
+    cx.quadraticCurveTo(-25,0,-33,5+wag*10);
+    cx.quadraticCurveTo(-26,9+wag*7,-15,0);
+    cx.fillStyle=f.c2;cx.fill();
+    cx.beginPath();
+    cx.ellipse(2,-9,6,3.2,0.5,0,Math.PI*2);
+    cx.fillStyle=f.c2;cx.fill();
+    cx.beginPath();
+    cx.ellipse(0,9,5,2.6,-0.4,0,Math.PI*2);
+    cx.fill();
+    cx.beginPath();
+    cx.arc(13,-2.5,1.5,0,Math.PI*2);
+    cx.fillStyle='rgba(50,46,38,.5)';cx.fill();
+    cx.restore();
+  }
+  function loop(now){
+    const t=(now-t0)/1000;
+    cx.clearRect(0,0,W,H);
+    fish.forEach(f=>{
+      f.x+=f.sp*f.dir*0.016*2.6;
+      if(f.dir>0&&f.x>W+70){f.x=-70;f.baseY=H*(0.63+Math.random()*0.3);}
+      if(f.dir<0&&f.x<-70){f.x=W+70;f.baseY=H*(0.63+Math.random()*0.3);}
+      drawFish(f,t);
+    });
+    if(Math.random()<0.012&&ripples.length<9){
+      ripples.push({x:Math.random()*W,y:H*(0.64+Math.random()*0.3),r:2,a:.42});
+    }
+    ripples.forEach(r=>{r.r+=.55;r.a-=.0055;
+      cx.beginPath();cx.ellipse(r.x,r.y,r.r,r.r*0.34,0,0,Math.PI*2);
+      cx.strokeStyle='rgba(255,255,255,'+Math.max(r.a,0)+')';cx.lineWidth=1.4;cx.stroke();
+      cx.beginPath();cx.ellipse(r.x,r.y,r.r*0.6,r.r*0.2,0,0,Math.PI*2);
+      cx.strokeStyle='rgba(120,150,148,'+Math.max(r.a*0.7,0)+')';cx.stroke();
+    });
+    ripples=ripples.filter(r=>r.a>0);
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize',size);
+  size();requestAnimationFrame(loop);
+})();
+
+/* ---------------- 原文卷軸 ---------------- */
+const LINES=[
+  {who:'nb',name:'敘',txt:'莊子與惠子遊於濠梁之上。',
+   bai:'莊子和惠施（惠子）在濠水的橋樑上遊賞。',
+   note:'「遊」不只是行走，更是心靈的逍遙。全篇的基調是「遊」——正是在這種無所為的心境中，「知」才可能发生。濠梁：濠水上的橋。'},
+  {who:'zz',name:'莊子',txt:'莊子曰：「鯈魚出遊從容，是魚之樂也。」',
+   bai:'莊子說：「白鯈魚在水裡悠游自在，這就是魚的快樂啊。」',
+   note:'鯈魚（音同「條」），即白鯈，一種小魚。莊子提出的唯一證據是「從容」——姿態與節奏。<span class="key">由外顯行為推論內在狀態</span>，這與現代動物行為學的方法結構相同。'},
+  {who:'hz',name:'惠子',txt:'惠子曰：「子非魚，安知魚之樂？」',
+   bai:'惠子說：「你又不是魚，怎麼會知道魚是快樂的？」',
+   note:'惠施是名家代表，重名實與邏輯。他問的是<b>知識的資格問題</b>：不同主體之間，能否直接知道對方的內在狀態？「安知」在此意為「怎能知道」。'},
+  {who:'zz',name:'莊子',txt:'莊子曰：「子非我，安知我不知魚之樂？」',
+   bai:'莊子說：「你又不是我，怎麼知道我不知道魚的快樂？」',
+   note:'以子之矛，攻子之盾。若「非 X 則不能知 X」普遍成立，那麼惠子也無法知道莊子的內在狀態，甚至無法知道任何人。<span class="indT">該原則一旦普遍化便自我推翻</span>。'},
+  {who:'hz',name:'惠子',txt:'惠子曰：「我非子，固不知子矣；子之固不知魚之樂，全矣。」',
+   bai:'惠子說：「我不是你，本來就不知道你；你本來也不是魚，所以你不知道魚的快樂，這道理是完備的。」',
+   note:'惠子接受這個類比並推到底：既然「我不知你」成立，那「你不知魚」也成立。就形式邏輯而言，他似乎贏得了這場辯論。'},
+  {who:'zz',name:'莊子',txt:'莊子曰：「請循其本。子曰『汝安知魚樂』云者，既已知吾知之而問我，我知之濠上也。」',
+   bai:'莊子說：「讓我們回到問題的根本。你問我『你從哪裡知道魚的快樂』，就表示你已經知道我知道，才來問我——我是在濠水橋上知道的。」',
+   note:'莊子把「安知」從<b>「怎能知道」</b>轉成<b>「在哪裡知道」</b>，跳出邏輯框架，指出：知發生在<span class="key">此時、此地、與魚共在的當下</span>。這不是詭辯的勝利，而是對「知」的另一種定義——情境性的、身體在場的、審美的體知。'},
+  {who:'nb',name:'按',txt:'辯無勝負，問留千年。',
+   bai:'這場辯論沒有輸贏，卻留下一個兩千年不衰的問題：「知」究竟是什麼？',
+   note:'惠子要的是<b>可證成的命題知識</b>，莊子給的是<b>可涵養的生命領會</b>。本卷接下來的三問，正是這一場對話在今天的延伸。'}
+];
+(function(){
+  const box=$('#lineList'); if(!box) return;
+  box.innerHTML=LINES.map((L,i)=>
+    '<div class="line" data-i="'+i+'">'+
+      '<span class="who '+L.who+'">'+L.name+'</span>'+
+      '<span class="txt">'+L.txt+'</span><span class="caret">▸ 白話 · 注釋</span>'+
+      '<div class="lineBody"><div><div class="lineNote"><b>白話譯解</b><div class="nt">'+L.bai+'</div></div>'+
+      '<div class="lineNote" style="border-style:solid"><b>哲學注釋</b><div class="nt">'+L.note+'</div></div></div></div>'+
+    '</div>').join('');
+  $$('.line',box).forEach(el=>{
+    el.addEventListener('click',ev=>{
+      if(ev.target.closest('.lineNote')) return;
+      const wasOpen=el.classList.contains('open');
+      $$('.line',box).forEach(x=>x.classList.remove('open','act'));
+      if(!wasOpen){el.classList.add('open','act');}
+    });
+  });
+  $('#expandAll').addEventListener('click',()=>{
+    const all=$$('.line',box).every(x=>x.classList.contains('open'));
+    $$('.line',box).forEach(x=>x.classList.toggle('open',!all));
+    $('#expandAll').textContent=all?'全部展開':'全部收合';
+  });
+  let playing=false,timer=null;
+  $('#autoBtn').addEventListener('click',function(){
+    if(playing){stopPlay();return;}
+    playing=true;this.textContent='■ 停止展卷';
+    let i=0;
+    const step=()=>{
+      if(i>=LINES.length){stopPlay();return;}
+      $$('.line',box).forEach(x=>x.classList.remove('open','act'));
+      const el=$$('.line',box)[i];
+      el.classList.add('open','act');
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      if(speaking) speakText(LINES[i].txt);
+      i++;timer=setTimeout(step,3200);
+    };
+    step();
+  });
+  function stopPlay(){playing=false;clearTimeout(timer);$('#autoBtn').textContent='▶ 自動展卷';}
+
+  /* 朗讀 */
+  let speaking=false,utt=null;
+  const sup=('speechSynthesis' in window);
+  if(sup){
+    const sb=$('#speakBtn'); sb.style.display='';
+    sb.textContent='🔊 朗讀全文';
+    function speakText(txt){
+      try{
+        window.speechSynthesis.cancel();
+        utt=new SpeechSynthesisUtterance(txt.replace(/<[^>]+>/g,''));
+        utt.lang='zh-TW';utt.rate=.85;utt.pitch=1;
+        window.speechSynthesis.speak(utt);
+      }catch(e){}
+    }
+    sb.addEventListener('click',()=>{
+      if(speaking){speaking=false;window.speechSynthesis.cancel();sb.textContent='🔊 朗讀全文';return;}
+      speaking=true;sb.textContent='■ 停止朗讀';
+      let i=0;
+      const next=()=>{
+        if(!speaking||i>=LINES.length){speaking=false;sb.textContent='🔊 朗讀全文';return;}
+        speakText(LINES[i].txt);i++;
+        setTimeout(next,3400);
+      };
+      next();
+    });
+    window.addEventListener('beforeunload',()=>{try{window.speechSynthesis.cancel();}catch(e){}});
+  }
+})();
+
+/* ---------------- accordions ---------------- */
+document.addEventListener('click',e=>{
+  const h=e.target.closest('.accH');
+  if(h&&h.parentElement.hasAttribute('data-acc')){
+    const a=h.parentElement;
+    const wasOpen=a.classList.contains('on');
+    $$('.acc',a.parentElement).forEach(x=>x.classList.remove('on'));
+    if(!wasOpen) a.classList.add('on');
+  }
+  const f=e.target.closest('[data-flip]');
+  if(f) f.classList.toggle('on');
+});
+
+/* ---------------- SVG 動物圖解 ---------------- */
+function dogArt(pose){
+  const ink='#3A342C',wash='url(#dwash)';
+  let s='<svg viewBox="0 0 300 200" width="100%" role="img" aria-label="'+(pose==='happy'?'放鬆快樂的狗':'害怕焦慮的狗')+'">'+
+  '<defs><linearGradient id="dwash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7EBD4"/><stop offset="1" stop-color="#E4D2B2"/></linearGradient></defs>'+
+  '<ellipse cx="150" cy="180" rx="92" ry="8" fill="#C9B894" opacity=".3"/>';
+  const g='<g fill="'+wash+'" stroke="'+ink+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">';
+  if(pose==='happy'){
+    s+=g+
+    '<path d="M226 92 C 246 84 254 66 246 48" fill="none" stroke-width="9"/>'+
+    '<path d="M256 56 C 264 50 266 42 262 34" fill="none" stroke-width="3" stroke="#C39A3F" opacity=".8"/>'+
+    '<path d="M266 70 C 276 64 278 54 274 46" fill="none" stroke-width="3" stroke="#C39A3F" opacity=".8"/>'+
+    '<rect x="188" y="126" width="17" height="50" rx="8.5"/>'+
+    '<rect x="160" y="130" width="16" height="46" rx="8" opacity=".7"/>'+
+    '<path d="M92 106 C 92 82 114 68 146 68 L 186 68 C 214 68 228 86 228 108 C 228 128 214 140 188 140 L 124 140 C 104 140 92 126 92 106 Z"/>'+
+    '<rect x="104" y="128" width="17" height="48" rx="8.5"/>'+
+    '<rect x="128" y="132" width="16" height="44" rx="8" opacity=".7"/>'+
+    '<circle cx="90" cy="80" r="29"/>'+
+    '<path d="M64 82 C 50 82 42 92 45 101 C 48 110 60 113 71 109 Z"/>'+
+    '<path d="M100 55 C 120 47 132 62 125 84 C 120 97 105 96 100 83 Z"/>'+
+    '<path d="M74 70 C 78 64 85 64 89 70" fill="none" stroke-width="3.4"/>'+
+    '<path d="M52 100 C 60 112 74 112 80 104" fill="none" stroke-width="3.4"/>'+
+    '<path d="M60 106 C 62 120 72 121 73 108 Z" fill="#D9796A" stroke="#B85A4C" stroke-width="2.4"/>'+
+    '</g>';
+    s+='<g font-size="12.5" fill="#B5382A" font-family="Noto Serif TC,serif">'+
+       '<text x="6" y="52">尾巴高舉</text><text x="6" y="68">輕鬆搖擺</text>'+
+       '<path d="M52 60 C 90 54 180 40 232 46" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="238" y="120">身體柔軟</text><text x="238" y="136">無緊繃</text>'+
+       '<path d="M234 124 C 220 124 210 122 200 118" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="10" y="150">嘴角放鬆</text><text x="10" y="166">微張吐舌</text>'+
+       '<path d="M52 148 C 54 138 58 126 62 114" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '</g>';
+  }else{
+    s+=g+
+    '<path d="M222 118 C 216 140 194 152 170 148" fill="none" stroke-width="8"/>'+
+    '<rect x="186" y="132" width="16" height="42" rx="8"/>'+
+    '<rect x="158" y="136" width="15" height="38" rx="7.5" opacity=".7"/>'+
+    '<path d="M96 116 C 96 96 118 84 148 84 L 184 84 C 208 84 222 98 222 116 C 222 134 208 144 184 144 L 126 144 C 106 144 96 134 96 116 Z"/>'+
+    '<rect x="108" y="136" width="16" height="40" rx="8"/>'+
+    '<rect x="132" y="140" width="15" height="36" rx="7.5" opacity=".7"/>'+
+    '<circle cx="94" cy="98" r="28"/>'+
+    '<path d="M68 100 C 54 100 47 108 50 116 C 53 124 64 126 74 122 Z"/>'+
+    '<path d="M104 74 C 124 68 138 78 134 88 C 130 96 112 92 102 84 Z"/>'+
+    '<circle cx="80" cy="92" r="7" fill="#FFFCF4" stroke-width="2.6"/>'+
+    '<circle cx="77.5" cy="93" r="3.2" fill="'+ink+'" stroke="none"/>'+
+    '<path d="M70 80 L 88 85" fill="none" stroke-width="3"/>'+
+    '<path d="M54 118 C 62 122 72 122 80 118" fill="none" stroke-width="3.2"/>'+
+    '<path d="M84 52 C 78 62 84 72 90 68 C 96 64 92 54 84 52 Z" fill="#9CC3D2" stroke="#6F9AA9" stroke-width="2"/>'+
+    '<path d="M150 62 l 8 -10 M166 60 l 8 -10 M182 62 l 8 -10" fill="none" stroke="#8FA6AE" stroke-width="2.4"/>'+
+    '</g>';
+    s+='<g font-size="12.5" fill="#B5382A" font-family="Noto Serif TC,serif">'+
+       '<text x="226" y="150">尾巴夾入</text><text x="226" y="166">兩腿之間</text>'+
+       '<path d="M222 152 C 210 150 200 148 190 146" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="6" y="70">耳朵後貼</text><text x="6" y="86">緊壓頭部</text>'+
+       '<path d="M50 78 C 70 76 90 74 104 76" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="6" y="150">重心後移</text><text x="6" y="166">避免眼神</text>'+
+       '<path d="M50 148 C 56 136 62 122 68 110" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '</g>';
+  }
+  return s+'</svg>';
+}
+function catArt(pose){
+  const ink='#3A342C',wash='url(#cwash)';
+  let s='<svg viewBox="0 0 300 200" width="100%" role="img" aria-label="'+(pose==='calm'?'安穩滿足的貓':'緊迫警戒的貓')+'">'+
+  '<defs><linearGradient id="cwash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F0E8"/><stop offset="1" stop-color="#DCD6C6"/></linearGradient></defs>'+
+  '<ellipse cx="150" cy="182" rx="86" ry="8" fill="#C9B894" opacity=".3"/>';
+  const g='<g fill="'+wash+'" stroke="'+ink+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">';
+  if(pose==='calm'){
+    s+=g+
+    '<path d="M120 158 C 158 176 202 172 214 156 C 224 142 206 130 190 140" fill="none" stroke-width="9"/>'+
+    '<path d="M118 100 C 96 122 88 152 96 170 C 102 180 196 180 202 170 C 210 152 202 122 180 100 C 166 112 132 112 118 100 Z"/>'+
+    '<circle cx="150" cy="72" r="31"/>'+
+    '<path d="M126 52 L 120 22 L 148 42 Z"/>'+
+    '<path d="M174 52 L 180 22 L 152 42 Z"/>'+
+    '<path d="M132 70 C 136 77 144 77 148 70" fill="none" stroke-width="3.4"/>'+
+    '<path d="M154 70 C 158 77 166 77 170 70" fill="none" stroke-width="3.4"/>'+
+    '<path d="M150 80 L 144 86 L 156 86 Z" fill="#D98B8B" stroke-width="2.4"/>'+
+    '<path d="M150 86 L 150 91 M150 91 C 146 97 138 95 136 91 M150 91 C 154 97 162 95 164 91" fill="none" stroke-width="2.8"/>'+
+    '<path d="M124 88 L 96 82 M124 93 L 96 96 M176 88 L 204 82 M176 93 L 204 96" stroke-width="2.2" opacity=".75"/>'+
+    '<ellipse cx="128" cy="170" rx="13" ry="8"/><ellipse cx="170" cy="170" rx="13" ry="8"/>'+
+    '</g>';
+    s+='<g font-size="12.5" fill="#4C7A5C" font-family="Noto Serif TC,serif">'+
+       '<text x="4" y="40">耳朵自然</text><text x="4" y="56">朝前放鬆</text>'+
+       '<path d="M46 48 C 70 44 100 36 118 30" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="222" y="60">慢眨眼</text><text x="222" y="76">和平訊號</text>'+
+       '<path d="M218 66 C 200 66 182 68 172 70" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="4" y="140">尾巴環繞</text><text x="4" y="156">前爪安頓</text>'+
+       '<path d="M46 146 C 70 152 96 158 116 160" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '</g>';
+  }else{
+    s+=g+
+    '<path d="M196 140 C 224 132 238 106 230 82" fill="none" stroke-width="13"/>'+
+    '<path d="M222 92 l 10 -6 M228 104 l 11 -4 M230 118 l 11 -2" stroke-width="3.4"/>'+
+    '<path d="M118 104 C 96 126 88 154 96 172 C 102 182 196 182 202 172 C 210 154 202 126 180 104 C 166 116 132 116 118 104 Z"/>'+
+    '<path d="M112 116 l 7 -11 l 7 11 l 7 -11 l 7 11 l 7 -11 l 7 11 l 7 -11 l 7 11 l 7 -11 l 7 11" fill="none" stroke-width="3"/>'+
+    '<circle cx="150" cy="74" r="31"/>'+
+    '<path d="M124 56 L 96 40 L 130 34 Z"/>'+
+    '<path d="M176 56 L 204 40 L 170 34 Z"/>'+
+    '<circle cx="136" cy="72" r="9.5" fill="#FFFCF4" stroke-width="2.8"/>'+
+    '<circle cx="164" cy="72" r="9.5" fill="#FFFCF4" stroke-width="2.8"/>'+
+    '<circle cx="136" cy="72" r="6.4" fill="'+ink+'" stroke="none"/>'+
+    '<circle cx="164" cy="72" r="6.4" fill="'+ink+'" stroke="none"/>'+
+    '<path d="M150 84 L 144 90 L 156 90 Z" fill="#D98B8B" stroke-width="2.4"/>'+
+    '<path d="M138 98 C 144 94 156 94 162 98" fill="none" stroke-width="2.8"/>'+
+    '<path d="M124 92 L 96 88 M124 97 L 98 102 M176 92 L 204 88 M176 97 L 202 102" stroke-width="2.2" opacity=".75"/>'+
+    '<ellipse cx="128" cy="172" rx="13" ry="8"/><ellipse cx="170" cy="172" rx="13" ry="8"/>'+
+    '</g>';
+    s+='<g font-size="12.5" fill="#B5382A" font-family="Noto Serif TC,serif">'+
+       '<text x="2" y="46">飛機耳</text><text x="2" y="62">側向平貼</text>'+
+       '<path d="M40 54 C 60 50 80 46 94 42" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="230" y="60">瞳孔放大</text><text x="230" y="76">注視鎖定</text>'+
+       '<path d="M226 66 C 210 66 190 68 176 70" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '<text x="2" y="146">尾毛膨起</text><text x="2" y="162">背脊豎毛</text>'+
+       '<path d="M44 148 C 70 146 100 142 120 136" stroke="#C39A3F" stroke-width="1" stroke-dasharray="3 4" fill="none"/>'+
+       '</g>';
+  }
+  return s+'</svg>';
+}
+
+/* ---------------- Q1 寵物測驗 ---------------- */
+const PET=[
+  {img:'dogHappy',q:'這隻狗的尾巴高舉輕鬆擺動、嘴角微張、身體柔軟，牠最可能處於什麼狀態？',
+   opts:['開心放鬆，可能想邀請互動','害怕，準備逃跑','身體疼痛，需要休息','憤怒，即將攻擊'],ans:0,
+   note:'尾巴位置＋擺動方式＋全身柔軟度＋面部放鬆，四者一致指向正向情緒。注意：若尾巴高舉但僵硬、快速小幅擺動、身體前傾緊繃，則可能是<b>警戒</b>而非快樂。'},
+  {img:'dogFear',q:'這隻狗耳朵後貼、尾巴夾入兩腿之間、重心後移並避免眼神接觸，代表什麼？',
+   opts:['邀玩，希望你追牠','壓力與恐懼，正在使用安定訊號','極度興奮，準備奔跑','想睡覺，只是姿勢奇怪'],ans:1,
+   note:'這是典型的<b>壓力反應</b>：夾尾、耳後貼、身體降低、視線迴避。此時不應直視、俯身壓近或强行安撫，而應<b>移除壓力源、給退路、側身避免眼神</b>，讓牠自行決定距離。'},
+  {img:'catCalm',q:'這隻貓瞇眼慢眨、耳朵朝前、尾巴環繞前爪安穩坐著，你可以怎麼回應？',
+   opts:['直視牠的眼睛測試反應','慢慢眨眼看牠，讓牠決定是否靠近','立刻抱起來親','大聲呼喚牠的名字'],ans:1,
+   note:'<b>慢眨眼</b>是貓的和平訊號（cat kiss），你可以緩慢眨眼回應，並讓牠主動靠近。突然直視、伸手或抱起，會把「安心」變成「威脅」。'},
+  {img:'catStress',q:'這隻貓飛機耳、瞳孔放大、背脊與尾毛豎起、身體壓低，最合適的處理是？',
+   opts:['立刻伸手安撫，讓牠知道你在','和牠對視，用眼神安撫','給予藏身處與退路，降低環境刺激，暫不觸碰','抱起來緊緊約束，防止逃跑'],ans:2,
+   note:'高度緊迫時，<b>觸碰與直視都會升級攻擊風險</b>。正確做法：安靜、縮小身影、開出逃跑路線與遮蔽處、移除聲音與氣味刺激，待其自行降階。'},
+  {img:null,q:'飼主要「更準確地」知道毛小孩快不快樂，最合理的做法是？',
+   opts:['憑感情就好，相處久了自然不會錯','只看單一表情或動作，最快最準','多重行為與生理指標交叉比對、長期記錄，必要時請獸醫或行為專家評估','問鄰居與網友的意見即可'],ans:2,
+   note:'因為動物無法自我報告、單一訊號具有多義性、飼主又有動機偏差，所以<b>多重指標＋長期基線＋外部校準</b>是讓「推論」趨近「可靠」的唯一方法。這也正是莊子之知與惠子之知的合作。'}
+];
+(function(){
+  const box=$('#petQuiz'); if(!box) return;
+  let idx=0,score=0,locked=false;
+  function render(){
+    const it=PET[idx];
+    $('#petCount').textContent='第 '+(idx+1)+' / '+PET.length+' 題';
+    $('#petBar').style.width=(idx/PET.length*100)+'%';
+    let html='';
+    if(it.img){
+      const art=it.img.indexOf('dog')===0?dogArt(it.img==='dogHappy'?'happy':'fear'):catArt(it.img==='catCalm'?'calm':'stressed');
+      html+='<div class="qImg">'+art+'</div>';
+    }
+    html+='<div class="qText">'+it.q+'</div><div class="opts">'+
+      it.opts.map((o,i)=>'<button class="opt" data-o="'+i+'"><span class="lb">'+'甲乙丙丁'[i]+'</span><span>'+o+'</span></button>').join('')+
+      '</div><div class="fb" id="petFb"></div>';
+    box.innerHTML=html;
+    $('#petNext').disabled=true;
+    $$('.opt',box).forEach(b=>b.addEventListener('click',()=>pick(b,it)));
+    locked=false;
+  }
+  function pick(btn,it){
+    if(locked) return; locked=true;
+    const sel=+btn.getAttribute('data-o');
+    const ok=sel===it.ans;
+    if(ok) score++;
+    $$('.opt',box).forEach(b=>{
+      b.disabled=true;
+      const n=+b.getAttribute('data-o');
+      if(n===it.ans) b.classList.add('ok');
+      else if(n===sel) b.classList.add('no');
+    });
+    const fb=$('#petFb',box);
+    fb.className='fb show '+(ok?'good':'bad');
+    fb.innerHTML='<b>'+(ok?'✔ 答對了':'✘ 再想想')+'</b>'+it.note;
+    $('#petScore').textContent='得分：'+score;
+    $('#petNext').disabled=false;
+    $('#petNext').textContent=(idx===PET.length-1)?'看結果 ▸':'下一題 ▸';
+    store.pet=Math.max(store.pet||0,score);save();renderTrack();
+  }
+  $('#petNext').addEventListener('click',()=>{
+    if(idx<PET.length-1){idx++;render();}
+    else{
+      store.pet=score;save();renderTrack();
+      $('#petBar').style.width='100%';
+      box.innerHTML='<div style="text-align:center;padding:14px 0">'+
+        '<div class="brush" style="font-size:2.4rem;color:var(--cinnabar)">'+score+' / '+PET.length+'</div>'+
+        '<p style="font-size:1.02rem;margin:8px 0 4px">'+
+        (score>=5?'<b class="jadeT">毛小孩讀心術 · 通關</b>：你已能同時使用觀察與校準。':
+         score>=3?'<b>已具基礎</b>：記得「單一訊號無意義，脈絡才決定意義」。':
+         '<b>且再展卷</b>：先從「多重指標交叉比對」重新練習。')+'</p>'+
+        '<p class="small muted" style="max-width:560px;margin:6px auto 0">莊子只看到「從容」便知魚樂；而你比莊子多了一項責任——你的判斷會影響一個不會說話的生命，所以更要允許自己被糾正。</p></div>';
+      $('#petNext').disabled=true;
+    }
+  });
+  $('#petReset').addEventListener('click',()=>{idx=0;score=0;$('#petScore').textContent='得分：０';render();});
+  render();
+})();
+
+/* ---------------- Q2 figures ---------------- */
+const FIGS=[
+  {who:'致仕老儒',said:'「這雨打在瓦上……像極了她生前煮茶的水聲。」',
+   why:'雨對他而言是<b>懷念的觸發器</b>。同樣的雨聲，因為一段四十年前的記憶，成為哀而不傷的陪伴。你無法複製他的喪偶之痛，但你可以安靜地坐在旁邊。'},
+  {who:'趕考少年',said:'「糟了，路要泥了……我還來得及嗎？」',
+   why:'雨對他是<b>障礙與焦慮</b>。他的注意力全在「來不來得及」，因此聽不見雨聲之美。情緒是「目標受阻」的訊號——同一事件，因目標不同而完全不同。'},
+  {who:'綢緞莊掌櫃',said:'「還好，昨兒曬的布都收進來了。」',
+   why:'雨對她是<b>已完成的安頓</b>。她的情緒裡有一層少年與老儒都沒有的東西：<b>掌控感</b>。同一場雨，在已經做好準備的人身上，甚至是種安慰。'},
+  {who:'鄰家孩童',said:'「水窪！水窪！我可以踩嗎？」',
+   why:'雨對他是<b>遊戲與邀請</b>。他沒有「溼了會冷」的經驗框架，也沒有考試與故人，於是雨只剩下最直接的快樂。這提醒我們：情緒不是事件的屬性，而是<b>事件與生命史相遇的結果</b>。'}
+];
+$$('.fig').forEach(b=>b.addEventListener('click',()=>{
+  $$('.fig').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const f=FIGS[+b.getAttribute('data-fig')];
+  $('#figBubble').innerHTML='<div class="who2">'+f.who+' · 心中落下的雨</div><div class="said">'+f.said+'</div><div class="why">'+f.why+'</div>';
+}));
+
+/* ladder */
+$$('#ladder .step').forEach(s=>s.addEventListener('click',()=>{
+  const wasOn=s.classList.contains('on');
+  $$('#ladder .step').forEach(x=>x.classList.remove('on'));
+  if(!wasOn) s.classList.add('on');
+}));
+
+/* 校準句式生成器 */
+const SCENES=['朋友剛失戀','同事當眾被指責','家人確診慢性病','同學考試失利','伴侶沉默不語'];
+const GUESSES=['他很難過','他其實很生氣','他覺得丟臉','他不想被安慰','他害怕失去控制'];
+(function(){
+  const sBox=$('#genScene'),gBox=$('#genGuess'),out=$('#genOut');
+  if(!sBox) return;
+  let sc=null,gs=null;
+  sBox.innerHTML='<span class="small muted" style="align-self:center;margin-right:4px">情境：</span>'+
+    SCENES.map((s,i)=>'<button class="chip" data-s="'+i+'">'+s+'</button>').join('');
+  gBox.innerHTML='<span class="small muted" style="align-self:center;margin-right:4px">你的直覺：</span>'+
+    GUESSES.map((g,i)=>'<button class="chip" data-g="'+i+'">'+g+'</button>').join('');
+  function render(){
+    if(sc===null||gs===null){out.textContent='請先選擇一個情境與一個你的直覺猜測。';return;}
+    const s=SCENES[sc],g=GUESSES[gs];
+    out.innerHTML=
+      '<p>「關於'+s+'這件事，我不確定我懂不懂。我聽起來你好像'+g.replace('他','')+'，是這樣嗎？如果我猜錯了，你可以糾正我。」</p>'+
+      '<p>「你不需要現在就說清楚。如果你想說，我在這裡；如果不想說，我也可以就陪你坐著。」</p>'+
+      '<p>「有沒有什麼是現在就有用的，我可以幫你做的？我不猜，你告訴我就好。」</p>'+
+      '<div class="noteBox" style="margin:12px 0 0;font-size:.88rem"><b>為什麼這樣說有效：</b>① 用「我猜／是這樣嗎」取代「我懂你」，<b>把斷言變成邀請糾正</b>；② 明確表示「猜錯也可以」，降低對方的說明成本；③ 把決定權交回對方——<b>陪伴的形式由被陪伴者定義</b>。</div>';
+  }
+  sBox.addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;
+    $$('.chip',sBox).forEach(x=>x.classList.remove('on'));c.classList.add('on');sc=+c.dataset.s;render();});
+  gBox.addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;
+    $$('.chip',gBox).forEach(x=>x.classList.remove('on'));c.classList.add('on');gs=+c.dataset.g;render();});
+  render();
+})();
+
+/* ---------------- Q3 情境判斷 ---------------- */
+const SRC=[{k:'sci',n:'科學證據'},{k:'obs',n:'觀察'},{k:'exp',n:'生活經驗'},{k:'int',n:'直覺'}];
+const SCN=[
+  {t:'家中長者近一個月走路變慢、上下樓梯喊膝蓋痠，夜裡偶爾痛醒。',risk:'高 · 不可逆',cls:'',best:'sci',
+   note:'涉及身體結構與可能的病變，<b>代價高且不可逆</b>，必須以醫學影像與臨床評估為準。生活經驗（「年紀大了都這樣」）在此是最大的風險來源——它常被用來延遲就醫。'},
+  {t:'早上出門前，要不要帶傘？',risk:'低 · 可逆',cls:'low',best:'obs',
+   note:'抬頭看雲色、風向、濕度，加上手機氣象資料即可。<b>低風險、可逆、回饋即時</b>，不必等待嚴謹研究。觀察是主力，科學（氣象預報）是加分項。'},
+  {t:'面試時，你「感覺」眼前這個人不太誠實。',risk:'中 · 影響他人',cls:'mid',best:'sci',
+   note:'面試第一印象是<b>低回饋、高偏誤</b>的領域：光環效果、相似性偏誤、刻板印象都會偽裝成直覺。應改用結構化面試、工作樣本、參考人查證等可檢驗的方法。'},
+  {t:'種了三十年菜的老農說：「蟻搬家、蛇過道，大雨就要到。」',risk:'低 · 可輔助',cls:'low',best:'exp',
+   note:'這是長期在地觀察累積的<b>默會知識</b>，對短時天氣變化確有参考价值。合理用法：把它當作<b>假設</b>，再用氣象資料校準；並留意氣候變遷可能使舊規律失效。'},
+  {t:'幼兒發燒 39.5°C、精神萎靡，要不要立刻退燒、要不要送醫？',risk:'高 · 緊急',cls:'',best:'sci',
+   note:'必須依臨床指引（年齡、體溫、意識狀態、脫水徵象）判斷，並立即就醫。<b>偏方與「以前都這樣」在此可能致命</b>。這是科學證據不可讓位的情境。'},
+  {t:'一幅畫讓你久久無法移開視線，你在考慮要不要買下它。',risk:'中 · 價值問題',cls:'mid',best:'int',
+   note:'「這幅畫對我而言值不值得」是<b>價值與美感判斷</b>，科學無法回答。可以請科學處理可測量的部分（顏料穩定性、市場行情、真偽鑑定），但最終的「感動」只能由你的經驗與直覺負責——並自己承擔後果。'}
+];
+(function(){
+  const box=$('#scnList'); if(!box) return;
+  let hit=0,done=0;
+  box.innerHTML=SCN.map((s,i)=>
+    '<div class="scn" data-s="'+i+'"><div class="scnTop"><span class="scnNo">'+(i+1)+'</span>'+
+    '<span class="scnT">'+s.t+'</span><span class="riskTag '+s.cls+'">風險：'+s.risk+'</span></div>'+
+    '<div class="scnOpts">'+SRC.map(o=>'<button class="sBtn" data-k="'+o.k+'">'+o.n+'</button>').join('')+'</div>'+
+    '<div class="fb" id="sf'+i+'"></div></div>').join('');
+  box.addEventListener('click',e=>{
+    const b=e.target.closest('.sBtn'); if(!b) return;
+    const card=b.closest('.scn'); if(card.classList.contains('done')) return;
+    const i=+card.dataset.s,s=SCN[i];
+    const ok=b.dataset.k===s.best;
+    if(ok) hit++;
+    done++;
+    card.classList.add('done');
+    $$('.sBtn',card).forEach(x=>{
+      x.disabled=true;
+      if(x.dataset.k===s.best) x.classList.add('ok');
+      else if(x===b) x.classList.add('no');
+    });
+    const fb=$('#sf'+i);
+    fb.className='fb show '+(ok?'good':'bad');
+    fb.innerHTML='<b>'+(ok?'✔ 判斷恰當':'✘ 值得再想')+'　最合適的主要來源：'+
+      (SRC.filter(o=>o.k===s.best)[0].n)+'</b>'+s.note;
+    $('#scnScore').textContent='命中：'+hit+' / '+SCN.length;
+    store.scn=Math.max(store.scn||0,hit);save();renderTrack();
+  });
+  $('#scnReset').addEventListener('click',()=>{
+    hit=0;done=0;$('#scnScore').textContent='命中：０ / ６';
+    $$('.scn',box).forEach((card,i)=>{
+      card.classList.remove('done');
+      const fb=$('#sf'+i);fb.className='fb';fb.innerHTML='';
+      $$('.sBtn',card).forEach(x=>{x.disabled=false;x.classList.remove('ok','no');});
+    });
+  });
+  if(store.scn) $('#scnScore').textContent='上次命中：'+store.scn+' / 6';
+})();
+
+/* ---------------- vote ---------------- */
+(function(){
+  const opts=$$('.voteOpt'); if(!opts.length) return;
+  const names=['莊子派','惠子派','濠梁派'];
+  const comments=['你選擇讓感受先行。記得為它配一個「校準」的夥伴，否則容易把「我以為」當成「他如此」。',
+    '你選擇讓證據先行。記得留一道縫給無法被測量的部分，否則世界會精確而荒涼。',
+    '你選擇讓兩者分工。這正是濠梁的答案：橋的兩端都要站得住，理解才有路可走。'];
+  function draw(){
+    const tot=store.votes.reduce((a,b)=>a+b,0)||1;
+    for(let i=0;i<3;i++){
+      const p=Math.round(store.votes[i]/tot*100);
+      $('#vb'+i).style.width=p+'%';
+      $('#vp'+i).textContent=p+'%';
+    }
+    $('#vres').classList.add('show');
+  }
+  opts.forEach(o=>o.addEventListener('click',()=>{
+    const i=+o.dataset.vote;
+    opts.forEach(x=>x.classList.remove('picked'));
+    o.classList.add('picked');
+    store.votes[i]++;save();draw();
+    $('#vComment').innerHTML='<b>你的選擇：'+names[i]+'。</b>'+comments[i];
+    toast('已記錄你的立場');
+  }));
+  if(store.votes.reduce((a,b)=>a+b,0)>0){/* show only after vote */}
+})();
+
+/* ---------------- reflection ---------------- */
+(function(){
+  const ta=$('#reflect'); if(!ta) return;
+  if(store.reflect){ta.value=store.reflect;$('#reflectHint').textContent='已儲存於此裝置';}
+  $('#saveReflect').addEventListener('click',()=>{
+    store.reflect=ta.value;save();
+    $('#reflectHint').textContent='已存入書籤 · '+new Date().toLocaleString('zh-TW');
+    toast('想法已存入你的書籤');
+  });
+})();
+
+/* ---------------- final quiz ---------------- */
+const FIN=[
+  {q:'莊子說「鯈魚出遊從容，是魚之樂也」，他判斷魚樂的直接依據是什麼？',
+   o:['魚發出的聲音','魚游動的姿態與節奏','惠子的事先告知','長年飼養魚的紀錄'],a:1,
+   n:'「從容」是姿態證據——<b>由外顯行為推論內在狀態</b>，這與現代動物行為學的方法結構一致，只是缺少儀器與統計的校準。'},
+  {q:'惠子「子非魚，安知魚之樂？」背後最核心的預設是什麼？',
+   o:['魚根本不會有快樂這種情緒','不同主體之間無法直接知道對方的內在狀態','莊子不會游泳，所以無法接近魚','「快樂」一詞根本無法定義'],a:1,
+   n:'惠子提出的是<b>知識的資格問題</b>：跨主體的內在狀態是否可知。他要的是可證成的命題知識。'},
+  {q:'莊子以「子非我，安知我不知魚之樂」回應，在邏輯上造成了什麼效果？',
+   o:['證明了魚確實快樂','指出惠子的原則若普遍化將自我推翻','承認自己其實不知道','完全轉移了話題，毫無意義'],a:1,
+   n:'若「非 X 則不能知 X」普遍成立，惠子也無法知道莊子、無法知道任何人。該原則<b>自反地推翻了自己</b>，因此不能作為絕對標準。'},
+  {q:'「請循其本……我知之濠上也」最貼近的意涵是？',
+   o:['我是從書上讀來的','我是在濠水橋上、與魚共在的當下領會到的','我是用儀器測量出來的','是惠子先告訴我的'],a:1,
+   n:'莊子把「安知」（怎能知道）轉為「安知」（在哪裡知道），指出<b>知發生在具體情境的相遇之中</b>——這是體知，不是命題的證成。'},
+  {q:'關於飼主判斷毛小孩的情緒，下列何者最合理？',
+   o:['只要感情夠好，就一定不會判斷錯','看到單一表情即可確定情緒','應以多重行為與生理指標交叉判斷、長期記錄，必要時尋求專業','動物情緒完全無法推論，一切判斷都沒有意義'],a:2,
+   n:'動物無法自我報告、訊號具多義性、飼主有動機偏差，因此<b>多重指標＋長期基線＋外部校準</b>才能讓推論趨於可靠。'},
+  {q:'下列哪一種情境「最不適合」只依靠直覺？',
+   o:['資深護理師覺得某位病人「不太對勁」','老農看雲決定何時灌溉','憑一時感覺重壓一支股票','主廚判斷麵團發酵是否完成'],a:2,
+   n:'直覺是「壓縮的經驗」，只在<b>規律穩定＋回饋快速＋練習量大</b>的領域可信。金融市場隨機性高、回饋延遲，直覺在此多半是偏誤。'},
+  {q:'關於「感同身受」，下列敘述何者正確？',
+   o:['只要足夠關心，就能完全複製對方的感受','感受具有第一人稱的私密性，理解是持續校準的靠近','語言可以完整傳達所有感受','同理心就是把自己會有的反應套在對方身上'],a:1,
+   n:'感質私密、生命史不可複製、語言有損，所以「完全理解」不可能；但<b>情緒共振、認知同理、關懷與陪伴</b>都不需要「完全懂」也能成立。'}
+];
+(function(){
+  const box=$('#finalQuiz'); if(!box) return;
+  let idx=0,score=0,locked=false;
+  function render(){
+    const it=FIN[idx];
+    $('#fCount').textContent='第 '+(idx+1)+' / '+FIN.length+' 題';
+    $('#fBar').style.width=(idx/FIN.length*100)+'%';
+    box.innerHTML='<div class="qText">'+(idx+1)+'．'+it.q+'</div><div class="opts">'+
+      it.o.map((o,i)=>'<button class="opt" data-o="'+i+'"><span class="lb">'+'甲乙丙丁'[i]+'</span><span>'+o+'</span></button>').join('')+
+      '</div><div class="fb" id="fFb"></div>';
+    $('#fNext').disabled=true;$('#fNext').textContent=(idx===FIN.length-1)?'看結果 ▸':'下一題 ▸';
+    $$('.opt',box).forEach(b=>b.addEventListener('click',()=>pick(b,it)));
+    locked=false;
+  }
+  function pick(btn,it){
+    if(locked)return;locked=true;
+    const sel=+btn.dataset.o,ok=sel===it.a;
+    if(ok)score++;
+    $$('.opt',box).forEach(b=>{b.disabled=true;const n=+b.dataset.o;
+      if(n===it.a)b.classList.add('ok');else if(n===sel)b.classList.add('no');});
+    const fb=$('#fFb');fb.className='fb show '+(ok?'good':'bad');
+    fb.innerHTML='<b>'+(ok?'✔ 正確':'✘ 正確答案：'+'甲乙丙丁'[it.a])+'</b>'+it.n;
+    $('#fScore').textContent='得分：'+score;
+    $('#fNext').disabled=false;
+    store.fin=Math.max(store.fin||0,score);save();renderTrack();
+  }
+  $('#fNext').addEventListener('click',()=>{
+    if(idx<FIN.length-1){idx++;render();return;}
+    store.fin=score;save();renderTrack();
+    $('#fBar').style.width='100%';
+    const rank=score>=7?['濠上達人','七題全中。你已能在莊子的感通與惠子的求證之間自由往來。']:
+      score>=5?['知魚之士','掌握主要論證。再回頭看看「三種知的分工」與「直覺的可信條件」。']:
+      score>=3?['濠梁學徒','已入門。建議重讀卷二的對照表，特別是「命題之知」與「體知」的差別。']:
+      ['且再展卷','先回到卷一逐句展卷，再依序讀完三問。'];
+    box.innerHTML='<div style="text-align:center;padding:12px 0 4px">'+
+      '<div class="brush" style="font-size:3rem;color:var(--cinnabar);line-height:1.2">'+score+' / '+FIN.length+'</div>'+
+      '<div class="brush" style="font-size:1.6rem;color:var(--indigo);letter-spacing:.2em;margin:6px 0">'+rank[0]+'</div>'+
+      '<p class="small muted" style="max-width:560px;margin:0 auto">'+rank[1]+'</p></div>';
+    $('#fNext').disabled=true;
+    $('#stuName').scrollIntoView({behavior:'smooth',block:'center'});
+    toast('檢核完成，可題名領印');
+  });
+  $('#fReset').addEventListener('click',()=>{idx=0;score=0;$('#fScore').textContent='得分：０';$('#cert').classList.remove('show');render();});
+  if(store.fin!==null&&store.fin!==undefined) $('#fScore').textContent='上次得分：'+store.fin;
+  render();
+})();
+
+/* ---------------- certificate ---------------- */
+$('#makeCert').addEventListener('click',()=>{
+  const nm=($('#stuName').value||'').trim()||'無名氏';
+  const s=(store.fin===null||store.fin===undefined)?null:store.fin;
+  $('#certName').textContent=nm;
+  const d=new Date();
+  $('#certDate').textContent='立券於 '+d.getFullYear()+' 年 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日';
+  let body;
+  if(s===null) body='研讀《莊子 · 秋水》濠梁之辯三問卷，展卷而思，特給「展卷之印」。';
+  else if(s>=7) body='研讀《莊子 · 秋水》濠梁之辯三問卷，七問全中，能辨命題之知與體知之別，能權衡科學、觀察、經驗與直覺之分際，特給「濠上知魚」之印。';
+  else if(s>=5) body='研讀《莊子 · 秋水》濠梁之辯三問卷，答對 '+s+' 問，已得大旨，特給「知魚之士」之印。';
+  else body='研讀《莊子 · 秋水》濠梁之辯三問卷，答對 '+s+' 問，展卷有功，思辨方始，特給「濠梁學徒」之印。';
+  $('#certBody').textContent=body;
+  $('#certStamp').innerHTML=(s!==null&&s>=7)?'濠上<br>知魚':(s!==null&&s>=5)?'知魚<br>之士':'濠梁<br>學徒';
+  const c=$('#cert');c.classList.add('show');
+  const st=$('#certStamp');st.style.animation='none';void st.offsetWidth;st.style.animation='';
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'center'}),80);
+  toast('印章已落');
+});
+$('#printCert').addEventListener('click',()=>window.print());
+$('#certAgain').addEventListener('click',()=>{
+  $('#cert').classList.remove('show');
+  $('#fReset').click();
+  document.getElementById('jiance').scrollIntoView({behavior:'smooth'});
+});
+$('#trackReset').addEventListener('click',()=>{
+  store={track:[],votes:[3,2,5],reflect:'',pet:null,scn:null,fin:null};save();
+  renderTrack();$('#reflect').value='';$('#reflectHint').textContent='尚未儲存';
+  toast('足跡已清除，可重新展卷');
+});
+})();
+</script>
+</body>
+</html>
